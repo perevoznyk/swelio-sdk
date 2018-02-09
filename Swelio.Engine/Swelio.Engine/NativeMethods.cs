@@ -333,6 +333,10 @@ namespace Swelio.Engine
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool PortAvailable32(int portNumber);
 
+        [DllImport("Swelio32.dll", EntryPoint = "GetCardSerialNumber", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool GetCardSerialNumber32(int readerNumber, byte[] serialNumber, ref int serialNumberSize);
+
         [DllImport("Swelio32.dll", EntryPoint = "ReadAddressExW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool ReadAddressEx32(int readerNumber, [In, Out] EIDAddress address);
@@ -777,6 +781,10 @@ namespace Swelio.Engine
         [DllImport("Swelio64.dll", EntryPoint = "PortAvailable", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool PortAvailable64(int portNumber);
+
+        [DllImport("Swelio64.dll", EntryPoint = "GetCardSerialNumber", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool GetCardSerialNumber64(int readerNumber, byte[] serialNumber, ref int serialNumberSize);
 
         [DllImport("Swelio64.dll", EntryPoint = "ReadAddressExW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -1952,7 +1960,6 @@ namespace Swelio.Engine
             }
         }
 
-
         public static bool PortAvailable(int portNumber)
         {
             if (IsWOW64())
@@ -1962,6 +1969,18 @@ namespace Swelio.Engine
             else
             {
                 return PortAvailable32(portNumber);
+            }
+        }
+
+        public static bool GetCardSerialNumber(int readerNumber, byte[] serialNumber, ref int serialNumberSize)
+        {
+            if (IsWOW64())
+            {
+                return GetCardSerialNumber64(readerNumber, serialNumber, ref serialNumberSize);
+            }
+            else
+            {
+                return GetCardSerialNumber32(readerNumber, serialNumber, ref serialNumberSize);
             }
         }
 

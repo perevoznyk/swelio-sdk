@@ -84,7 +84,8 @@ namespace Swelio.Engine
                     case 02:
                         id.DocumentType = DocumentType.EuropeanCommunity;
                         break;
-                    case 03: id.DocumentType = DocumentType.NonEuropeanCommunity;
+                    case 03:
+                        id.DocumentType = DocumentType.NonEuropeanCommunity;
                         break;
                     case 04:
                         id.DocumentType = DocumentType.KidsCard;
@@ -216,6 +217,30 @@ namespace Swelio.Engine
                 return null;
         }
 
+        public string SerialNumber
+        {
+            get
+            {
+                if (reader == null)
+                    return null;
+
+                byte[] serial = new byte[16];
+                int len = 16;
+                if (NativeMethods.GetCardSerialNumber(reader.Index, serial, ref len))
+                {
+                    StringBuilder hex = new StringBuilder(serial.Length * 2);
+                    foreach (byte b in serial)
+                        hex.AppendFormat("{0:x2}", b);
+                    return hex.ToString();
+
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+        }
         /// <summary>
         /// Reads the photo.
         /// </summary>
