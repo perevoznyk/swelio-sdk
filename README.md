@@ -8,7 +8,7 @@ Belgian eID card SDK
 * x32 and x64 versions
 * All functions have Unicode and Ansi version
 * Simple to use, easy to embed in any programming language
-* C++ and Delphi SDK with samples and documenation are included
+* C++ and C# SDK with samples and documenation are included
 * Works in Windows XP - Windows 10
 * Provides 256 different functions
 * QR codes generation
