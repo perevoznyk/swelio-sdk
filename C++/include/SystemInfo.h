@@ -54,6 +54,12 @@ BOOL WINAPI IsWow64();
 //Checks if the application is native 64 bit executable
 BOOL WINAPI IsNativeWin64();
 
+//Checks if application is running in RDP session
+BOOL WINAPI IsRemoteSession();
+
+//Checks if application is running in Citrix session
+BOOL WINAPI IsCitrixSession();
+
 //Returns the IP address
 void WINAPI CurrentIPAddressW(LPWSTR address, UINT len);
 

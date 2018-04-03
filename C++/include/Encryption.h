@@ -6,6 +6,8 @@
 //= FITNESS FOR A PARTICULAR PURPOSE.
 //===============================================================================
 
+//30.01.2018 - Added SHA256 functions
+
 #pragma once
 
 #if !defined( _ENCRYPTION_H_ )
@@ -29,6 +31,20 @@ extern "C" {
  //  completed successfully, otherwise the result is FALSE       
 BOOL WINAPI GetFileSHA1W(LPWSTR fileName, BYTE* buffer, int bufferSize);
 
+//  Summary
+//  Gets the SHA256 hash value for the file
+//  Description
+//  Calculates SHA256 hash value for the given file
+//  Parameters
+//  fileName :    The name of the file
+//  buffer :      The buffer to store the hash value
+//  bufferSize :  The size of the buffer
+//  
+//  Return Value
+//  The result of the function is equal to TRUE if operation is
+//  completed successfully, otherwise the result is FALSE       
+BOOL WINAPI GetFileSHA256W(LPWSTR fileName, BYTE* buffer, int bufferSize);
+
  //  Summary
  //  Gets the SHA1 hash value for the file
  //  Description
@@ -41,6 +57,19 @@ BOOL WINAPI GetFileSHA1W(LPWSTR fileName, BYTE* buffer, int bufferSize);
  //  The result of the function is equal to TRUE if operation is
  //  completed successfully, otherwise the result is FALSE       
 BOOL WINAPI GetFileSHA1A(LPSTR fileName, BYTE* buffer, int bufferSize);
+
+//  Summary
+//  Gets the SHA256 hash value for the file
+//  Description
+//  Calculates SHA256 hash value for the given file
+//  Parameters
+//  fileName :    The name of the file
+//  buffer :      The buffer to store the hash value
+//  bufferSize :  The size of the buffer
+//  Return Value
+//  The result of the function is equal to TRUE if operation is
+//  completed successfully, otherwise the result is FALSE       
+BOOL WINAPI GetFileSHA256A(LPSTR fileName, BYTE* buffer, int bufferSize);
 
  //  Summary
  //  Gets the MD5 hash value for the file
@@ -82,6 +111,20 @@ BOOL WINAPI GetFileMD5A(LPSTR fileName, BYTE* buffer, int bufferSize);
  //  bufferSize :  The size of the destination buffer              
 BOOL WINAPI GetSHA1(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
 
+//  Summary
+//  Gets the SHA256 hash value for the content of the memory buffer
+//  Description
+//  Calculates SHA256 hash value for the given memory buffer
+//  Return Value
+//  The result of the function is equal to TRUE if operation is
+//  completed successfully, otherwise the result is FALSE
+//  Parameters
+//  source :      The source memory block
+//  sourceSize :  The size of the source memory block
+//  buffer :      The buffer for the hash value
+//  bufferSize :  The size of the destination buffer              
+BOOL WINAPI GetSHA256(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
+
  //  Summary
  //  Gets the MD5 hash value for the content of the memory buffer
  //  Description
@@ -110,6 +153,21 @@ BOOL WINAPI GetMD5(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
  //  Returns TRUE if the hash value is correct, otherwise returns
  //  false                                                                
 BOOL WINAPI CheckSHA1(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
+
+//  Summary
+//  Checks the SHA256 hash value of the memory buffer
+//  Description
+//  This function checks if the provided value of the hash is
+//  valid
+//  Parameters
+//  source :      The source bytes
+//  sourceSize :  The size of the source buffer
+//  buffer :      The hash value buffer
+//  bufferSize :  The size of the hash value buffer
+//  Return Value
+//  Returns TRUE if the hash value is correct, otherwise returns
+//  false                                                                
+BOOL WINAPI CheckSHA256(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
 
  //  Summary
  //  Checks the MD5 hash value of the memory buffer
@@ -220,6 +278,7 @@ BOOL WINAPI CardDecryptFileA(LPSTR szSource, LPSTR szDestination);
 
 #ifdef UNICODE
 #define GetFileSHA1 GetFileSHA1W
+#define GetFileSHA256 GetFileSHA256W
 #define GetFileMD5 GetFileMD5W
 #define EncryptFileAES EncryptFileAESW
 #define DecryptFileAES DecryptFileAESW
@@ -227,6 +286,7 @@ BOOL WINAPI CardDecryptFileA(LPSTR szSource, LPSTR szDestination);
 #define CardDecryptFile CardDecryptFileW
 #else
 #define GetFileSHA1 GetFileSHA1A
+#define GetFileSHA256 GetFileSHA256A
 #define GetFileMD5 GetFileMD5A
 #define EncryptFileAES EncryptFileAESA
 #define DecryptFileAES DecryptFileAESA

@@ -73,6 +73,18 @@ int  WINAPI GetReadersCount(VOID);
 BOOL WINAPI SelectReader(int readerNumber);
 
 // Summary:
+//      Get the applet version number for card in the reader with specified number
+// Description:
+//      Get the version number of eid card applet using the zero-based reader index. 
+//      The first reader has number 0, second - 1, etc...
+//      You can read the information only from one selected reader at once.
+// Arguments:
+//      readerNumber - The reader index, starting from 0
+// Return Value:
+//      The card applet version number
+int WINAPI GetCardVersion(int readerNumber);
+
+// Summary:
 //      Returns the index of the active smart card reader
 // Description:
 //      The zero-based index of the selected card reader. If there is only one reader is connected
@@ -813,6 +825,69 @@ BOOL WINAPI ReadRootCaCertificate(PEidCertificate certificate);
 //      otherwise returns FALSE
 BOOL WINAPI ReadRrnCertificate(PEidCertificate certificate);
 
+
+// Summary:
+//     Read Authentication Certificate to memory
+// Description:
+//     Read Authentication Certificate from the card to EidCertificate structure
+// Arguments:
+//	   readerNumber - The zero-based index of the card reader
+//     cerificate - The pointer to EidCertificate structure
+// Return value:
+//      TRUE when certificate is successfully received from the card;
+//      otherwise returns FALSE
+BOOL WINAPI ReadAuthenticationCertificateEx(int readerNumber, PEidCertificate certificate);
+
+// Summary:
+//     Read Non Repudiation Certificate to memory
+// Description:
+//     Read Non Repudiation Certificate to EidCertificate structure
+// Arguments:
+//	   readerNumber - The zero-based index of the card reader
+//     cerificate - The pointer to EidCertificate structure
+// Return value:
+//      TRUE when certificate is successfully received from the card;
+//      otherwise returns FALSE
+BOOL WINAPI ReadNonRepudiationCertificateEx(int readerNumber, PEidCertificate certificate);
+
+// Summary:
+//     Read Ca Certificate to memory
+// Description:
+//     Read Ca Certificate to EidCertificate structure
+// Arguments:
+//	   readerNumber - The zero-based index of the card reader
+//     cerificate - The pointer to EidCertificate structure
+// Return value:
+//      TRUE when certificate is successfully received from the card;
+//      otherwise returns FALSE
+BOOL WINAPI ReadCaCertificateEx(int readerNumber, PEidCertificate certificate);
+
+// Summary:
+//     Read Root Ca Certificate to memory
+// Description:
+//     Read Root Ca Certificate to EidCertificate structure
+// Arguments:
+//	   readerNumber - The zero-based index of the card reader
+//     cerificate - The pointer to EidCertificate structure
+// Return value:
+//      TRUE when certificate is successfully received from the card;
+//      otherwise returns FALSE
+BOOL WINAPI ReadRootCaCertificateEx(int readerNumber, PEidCertificate certificate);
+
+// Summary:
+//     Read Rrn Certificate to memory
+// Description:
+//     Read Rrn Certificate to EidCertificate structure
+// Arguments:
+//	   readerNumber - The zero-based index of the card reader
+//     cerificate - The pointer to EidCertificate structure
+// Return value:
+//      TRUE when certificate is successfully received from the card;
+//      otherwise returns FALSE
+BOOL WINAPI ReadRrnCertificateEx(int readerNumber, PEidCertificate certificate);
+
+BOOL WINAPI SendAPDU(int readerNumber, LPCBYTE apdu, DWORD apduLen, PCHAR result, LPDWORD len);
+
 // Summary:
 //     Performs Base64 encoding of the certificate
 // Arguments:
@@ -1331,6 +1406,8 @@ void* WINAPI CreateCardBuffer();
 BOOL WINAPI SavePersonCsvToStreamW(int readerNumber, void* buffer);
 
 BOOL WINAPI SavePersonCsvToStreamA(int readerNumber, void* buffer);
+
+BOOL WINAPI GetCardSerialNumber(int readerNumber,  BYTE* serialNumber, LPDWORD serialNumberSize);
 
 #ifdef UNICODE
 #define SelectReaderByName SelectReaderByNameW

@@ -356,6 +356,8 @@ BOOL WINAPI DeallocateHWNDA(HWND hwnd);
  //  hwnd :  The window handle          
 void WINAPI RestoreWindowSubclassA(HWND hwnd);
 
+void fpreset();
+
 #ifdef UNICODE
 #define GetStartup GetStartupW
 #define SetStartup SetStartupW
