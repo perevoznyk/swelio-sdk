@@ -19,7 +19,7 @@ using System;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Serhiy Perevoznyk")]
 [assembly: AssemblyProduct("Swelio.Engine")]
-[assembly: AssemblyCopyright("Copyright © Serhiy Perevoznyk 2014-2017")]
+[assembly: AssemblyCopyright("Copyright © Serhiy Perevoznyk 2014-2018")]
 [assembly: AssemblyTrademark("Swelio (tm)")]
 [assembly: AssemblyCulture("")]
 
@@ -41,7 +41,7 @@ using System;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.8.06.1015")]
-[assembly: AssemblyFileVersion("1.8.06.1015")]
+[assembly: AssemblyVersion("1.12.05.2018")]
+[assembly: AssemblyFileVersion("1.12.05.2018")]
 
 [assembly: CLSCompliant(true)]
