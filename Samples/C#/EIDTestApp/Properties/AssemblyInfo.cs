@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Serhiy Perevoznyk")]
 [assembly: AssemblyProduct("EIDTestApp")]
-[assembly: AssemblyCopyright("Copyright (c) Serhiy Perevoznyk 2007-2014")]
+[assembly: AssemblyCopyright("Copyright (c) Serhiy Perevoznyk 2007-2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

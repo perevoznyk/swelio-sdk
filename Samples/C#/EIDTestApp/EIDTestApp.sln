@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIDTestApp", "EIDTestApp.csproj", "{DCF61744-D357-4B15-B537-1AA8B0E503ED}"
 	ProjectSection(ProjectDependencies) = postProject
 		{AACADA10-0AB6-4845-8B13-87A7FA86AE69} = {AACADA10-0AB6-4845-8B13-87A7FA86AE69}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swelio.Engine", "..\..\..\Binding\C#\Swelio.Engine\Swelio.Engine\Swelio.Engine.csproj", "{AACADA10-0AB6-4845-8B13-87A7FA86AE69}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swelio.Engine", "..\..\..\Swelio.Engine\Swelio.Engine\Swelio.Engine.csproj", "{AACADA10-0AB6-4845-8B13-87A7FA86AE69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,5 +47,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DBF3C09-A051-43E2-B17D-060538754726}
 	EndGlobalSection
 EndGlobal
