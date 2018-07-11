@@ -481,7 +481,13 @@ namespace Swelio.Engine
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SavePersonCsvToStreamA32(int readerNumber, IntPtr buffer);
 
+        [DllImport("Swelio32.dll", EntryPoint = "SendAPDU", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true, ExactSpelling = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool SendAPDU32(int readerNumber, byte[] apdu, int apduLen, byte[] result, ref int len);
 
+        [DllImport("Swelio32.dll", EntryPoint = "SendAPDU", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true, ExactSpelling = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool SendAPDU64(int readerNumber, byte[] apdu, int apduLen, byte[] result, ref int len);
 
         [DllImport("Swelio64.dll", EntryPoint = "IsCardActivatedEx", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.StdCall)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -929,6 +935,18 @@ namespace Swelio.Engine
         [DllImport("Swelio64.dll", EntryPoint = "SavePersonCsvToStreamA", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true, ExactSpelling = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SavePersonCsvToStreamA64(int readerNumber, IntPtr buffer);
+
+        public static bool SendAPDU(int readerNumber, byte[] apdu, int apduLen, byte[] result, ref int len)
+        {
+            if (IsWOW64())
+            {
+                return SendAPDU64(readerNumber, apdu, apduLen, result, ref len);
+            }
+            else
+            {
+                return SendAPDU32(readerNumber, apdu, apduLen, result, ref len);
+            }
+        }
 
         public static bool IsCardActivatedEx(int readerNumber)
         {

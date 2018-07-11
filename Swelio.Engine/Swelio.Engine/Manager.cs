@@ -185,6 +185,21 @@ namespace Swelio.Engine
             }
         }
 
+        public bool SendAPDU(int readerNumber, byte[] apdu, int apduLen, byte[] result, ref int len)
+        {
+            CardReader reader = GetReader(readerNumber);
+            if (reader == null)
+                return false;
+
+            Card card = reader.GetCard();
+            if (card == null)
+                return false;
+
+            return NativeMethods.SendAPDU(readerNumber, apdu, apduLen, result, ref len);
+
+
+        }
+
         /// <summary>
         /// Gets the name of the reader.
         /// </summary>
