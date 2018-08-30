@@ -3802,7 +3802,7 @@ procedure GenerateBMPA(FileName: PAnsiChar; Text : PAnsiChar; Margin : integer; 
 //  size :     The size of the point in pixels
 //  level :    The error correction level
 //  bufSize :  The size of the output buffer
-//  ppvBits :  The buffer when the resulting image is stored     
+//  ppvBits :  The buffer when the resulting image is stored
 procedure GetPNG(Text : PChar; Margin : integer; Size : integer; Level : integer; var BufSize : integer; out ppvBits : PByte); stdcall;
 
 //  Summary
@@ -3816,7 +3816,7 @@ procedure GetPNG(Text : PChar; Margin : integer; Size : integer; Level : integer
 //  size :     The size of the point in pixels
 //  level :    The error correction level
 //  bufSize :  The size of the output buffer
-//  ppvBits :  The buffer when the resulting image is stored     
+//  ppvBits :  The buffer when the resulting image is stored
 procedure GetPNGW(Text : PWideChar; Margin : integer; Size : integer; Level : integer; var BufSize : integer; out ppvBits : PByte); stdcall;
 
 //  Summary
@@ -3830,7 +3830,7 @@ procedure GetPNGW(Text : PWideChar; Margin : integer; Size : integer; Level : in
 //  size :     The size of the point in pixels
 //  level :    The error correction level
 //  bufSize :  The size of the output buffer
-//  ppvBits :  The buffer when the resulting image is stored     
+//  ppvBits :  The buffer when the resulting image is stored
 procedure GetPNGA(Text : PAnsiChar; Margin : integer; Size : integer; Level : integer; var BufSize : integer; out ppvBits : PByte); stdcall;
 
 //  Summary
@@ -3842,6 +3842,74 @@ procedure GetPNGA(Text : PAnsiChar; Margin : integer; Size : integer; Level : in
 //  buffer :  The memory buffer
 procedure DestroyImageBuffer(Buffer : PByte); stdcall;
 
+// Summary
+// Gets the card serial number
+// Description
+// Use this function to read the serial number of the card
+// Parameters
+// readerNumber : the index of the card reader
+// serialNumber : the buffer to get the serial number value
+// serialNumberSize: the size of the buffer
+function GetCardSerialNumber(readerNumber : integer; serialNumber :PBYTE; var serialNumberSize : DWORD) : BOOL; stdcall;
+
+// Summary:
+//		Sign data with eID card according to CMS standard
+// Description:
+//		Create CMS signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		readerNumber - The zero-based index of the card reader.
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
+function CardSignCMS(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall;
+
+// Summary:
+//		Sign data with eID card according to CADES-T standard
+// Description:
+//		Create CADES-T signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		readerNumber - The zero-based index of the card reader.
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
+function CardSignCadesT(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall;
+
+// Summary:
+//		Sign data with certificate according to CMS standard
+// Description:
+//		Create CMS signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		certificate : the name of the certificate file
+//    password : password of the certificate file
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
+function CertSignCMS(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall;
+
+// Summary:
+//		Sign data with certificate according to CADES-T standard
+// Description:
+//		Create CADES-T signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		certificate : the name of the certificate file
+//    password : password of the certificate file
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
+function CertSignCadesT(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall;
+
 implementation
 
 const
@@ -3850,6 +3918,12 @@ const
 {$ELSE}
   SwelioLib = 'Swelio32.dll';
 {$ENDIF}
+
+function GetCardSerialNumber(readerNumber : integer; serialNumber :PBYTE; var serialNumberSize : DWORD) : BOOL; stdcall; external SwelioLib;
+function CardSignCMS(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall; external SwelioLib;
+function CardSignCadesT(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall; external SwelioLib;
+function CertSignCMS(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall; external SwelioLib;
+function CertSignCadesT(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall; external SwelioLib;
 
 {$IFDEF UNICODE}
 procedure GeneratePNG (FileName: PChar; Text : PChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib name 'GeneratePNGW';
