@@ -1441,6 +1441,21 @@ BOOL WINAPI CertSignCMS(LPWSTR certificate, LPWSTR password, BYTE *data, UINT da
 
 BOOL WINAPI CertSignCadesT(LPWSTR certificate, LPWSTR password, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
 
+//ASIC containers
+LPVOID WINAPI InitializeContainer();
+
+void WINAPI FreeContainer(LPVOID container);
+
+BOOL WINAPI SaveContainer(LPVOID container, LPWSTR fileName);
+
+BOOL WINAPI AddFileToContainer(LPVOID container, LPSTR fileName);
+
+BOOL WINAPI ContainerCertificate(LPVOID container, LPWSTR fileName, LPWSTR password);
+
+BOOL WINAPI ContainerPickCertificate(LPVOID container);
+
+BOOL WINAPI ContainerEidCertificate(LPVOID container, int readerNumber);
+
 #ifdef UNICODE
 #define SelectReaderByName SelectReaderByNameW
 #define GetReaderNameLen GetReaderNameLenW
