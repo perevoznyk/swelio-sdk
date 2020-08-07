@@ -2199,7 +2199,7 @@ function CardDecryptFileA(Source : PAnsiChar; Destination : PAnsiChar) : BOOL; s
 //      D - The unformatted national number
 // Return Value:
 //      Formatted string
-function FormatEIDDate(D : String) : String;
+function FormatEIDDate(D : String; Separator : String = '/') : String;
 
 // Summary:
 //      Format the national number string for better visualization
@@ -3910,6 +3910,20 @@ function CertSignCMS(certificate : PWideChar; password : PWideChar; data : PBYTE
 //		Returns true if the operation is successful, otherwise returns false
 function CertSignCadesT(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall;
 
+function InitializeContainer() : pointer; stdcall;
+
+procedure FreeContainer(Container: pointer); stdcall;
+
+function SaveContainer(Container: pointer; fileName: PWideChar) : BOOL; stdcall;
+
+function AddFileToContainer(Container: pointer; fileName: PAnsiChar) : BOOL; stdcall;
+
+function ContainerCertificate(Container: pointer; fileName: PWideChar; password : PWideChar) : BOOL; stdcall;
+
+function ContainerPickCertificate(Container: pointer) : BOOL; stdcall;
+
+function ContainerEidCertificate(Container: pointer; readerNumber : integer) : BOOL; stdcall;
+
 implementation
 
 const
@@ -3924,6 +3938,20 @@ function CardSignCMS(readerNumber : integer; data : PBYTE; dataLen : integer; si
 function CardSignCadesT(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall; external SwelioLib;
 function CertSignCMS(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall; external SwelioLib;
 function CertSignCadesT(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall; external SwelioLib;
+
+function InitializeContainer() : pointer; stdcall; external SwelioLib;
+
+procedure FreeContainer(Container: pointer); stdcall; external SwelioLib;
+
+function SaveContainer(Container: pointer; fileName: PWideChar) : BOOL; stdcall; external SwelioLib;
+
+function AddFileToContainer(Container: pointer; fileName: PAnsiChar) : BOOL; stdcall; external SwelioLib;
+
+function ContainerCertificate(Container: pointer; fileName: PWideChar; password : PWideChar) : BOOL; stdcall; external SwelioLib;
+
+function ContainerPickCertificate(Container: pointer) : BOOL; stdcall; external SwelioLib;
+
+function ContainerEidCertificate(Container: pointer; readerNumber : integer) : BOOL; stdcall; external SwelioLib;
 
 {$IFDEF UNICODE}
 procedure GeneratePNG (FileName: PChar; Text : PChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib name 'GeneratePNGW';
@@ -4660,12 +4688,12 @@ procedure CurrentIPAddressA(Address : PAnsiChar; Len : UINT); stdcall; external 
 
 procedure ShowError(ErrorCode : DWORD); stdcall; external SwelioLib;
 
-function FormatEIDDate(D : String) : String;
+function FormatEIDDate(D : String; Separator : string = '/') : String;
 begin
   if Length(D) <> 8 then
    Result := ''
      else
-       Result := Copy(D, 7, 2) + DateSeparator + Copy(D, 5, 2)+ DateSeparator +
+       Result := Copy(D, 7, 2) + Separator + Copy(D, 5, 2)+ Separator +
          Copy(D, 1, 4);
 end;
 
