@@ -33,6 +33,7 @@ namespace Swelio.Engine
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool PathUnExpandEnvStrings([MarshalAs(UnmanagedType.LPWStr)] string pszPath, [Out] StringBuilder pszBuf, int cchBuf);
 
+        #region x32 API
 
         [DllImport("Swelio32.dll", EntryPoint = "IsCardActivatedEx", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.StdCall)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -449,7 +450,6 @@ namespace Swelio.Engine
         [DllImport("Swelio32.dll", EntryPoint = "SaveRrnCertificateExW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         private static extern void SaveRrnCertificateEx32([MarshalAs(UnmanagedType.LPWStr)] string fileName, int readerNumber);
 
-
         [DllImport("Swelio32.dll", EntryPoint = "SaveCardToToXMLStreamExW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SaveCardToToXMLStreamExW32(int readerNumber, IntPtr buffer);
@@ -485,7 +485,36 @@ namespace Swelio.Engine
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SendAPDU32(int readerNumber, byte[] apdu, int apduLen, byte[] result, ref int len);
 
-        [DllImport("Swelio32.dll", EntryPoint = "SendAPDU", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true, ExactSpelling = true)]
+        [DllImport("Swelio32.dll", EntryPoint = "InitializeContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        private static extern IntPtr InitializeContainer32();
+
+        [DllImport("Swelio32.dll", EntryPoint = "FreeContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        private static extern void FreeContainer32(IntPtr container);
+
+        [DllImport("Swelio32.dll", EntryPoint = "SaveContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool SaveContainer32(IntPtr container, [MarshalAs(UnmanagedType.LPWStr)] string fileName);
+
+        [DllImport("Swelio32.dll", EntryPoint = "AddFileToContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool AddFileToContainer32(IntPtr container, [MarshalAs(UnmanagedType.LPStr)] string fileName);
+
+        [DllImport("Swelio32.dll", EntryPoint = "ContainerCertificate", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool ContainerCertificate32(IntPtr container, [MarshalAs(UnmanagedType.LPWStr)] string fileName, [MarshalAs(UnmanagedType.LPWStr)] string password);
+
+        [DllImport("Swelio32.dll", EntryPoint = "ContainerPickCertificate", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool ContainerPickCertificate32(IntPtr container);
+
+        [DllImport("Swelio32.dll", EntryPoint = "ContainerEidCertificate", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool ContainerEidCertificate32(IntPtr container, int readerNumber);
+
+        #endregion
+
+        #region x64 API
+        [DllImport("Swelio64.dll", EntryPoint = "SendAPDU", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true, ExactSpelling = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SendAPDU64(int readerNumber, byte[] apdu, int apduLen, byte[] result, ref int len);
 
@@ -904,7 +933,6 @@ namespace Swelio.Engine
         [DllImport("Swelio64.dll", EntryPoint = "SaveRrnCertificateExW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         private static extern void SaveRrnCertificateEx64([MarshalAs(UnmanagedType.LPWStr)] string fileName, int readerNumber);
 
-
         [DllImport("Swelio64.dll", EntryPoint = "SaveCardToToXMLStreamExW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SaveCardToToXMLStreamExW64(int readerNumber, IntPtr buffer);
@@ -936,6 +964,35 @@ namespace Swelio.Engine
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SavePersonCsvToStreamA64(int readerNumber, IntPtr buffer);
 
+        [DllImport("Swelio64.dll", EntryPoint = "InitializeContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        private static extern IntPtr InitializeContainer64();
+
+        [DllImport("Swelio64.dll", EntryPoint = "FreeContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        private static extern void FreeContainer64(IntPtr container);
+
+        [DllImport("Swelio64.dll", EntryPoint = "SaveContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool SaveContainer64(IntPtr container, [MarshalAs(UnmanagedType.LPWStr)] string fileName);
+
+        [DllImport("Swelio64.dll", EntryPoint = "AddFileToContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool AddFileToContainer64(IntPtr container, [MarshalAs(UnmanagedType.LPStr)] string fileName);
+
+        [DllImport("Swelio64.dll", EntryPoint = "ContainerCertificate", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool ContainerCertificate64(IntPtr container, [MarshalAs(UnmanagedType.LPWStr)] string fileName, [MarshalAs(UnmanagedType.LPWStr)] string password);
+
+        [DllImport("Swelio64.dll", EntryPoint = "ContainerPickCertificate", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool ContainerPickCertificate64(IntPtr container);
+
+        [DllImport("Swelio64.dll", EntryPoint = "ContainerEidCertificate", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool ContainerEidCertificate64(IntPtr container, int readerNumber);
+
+        #endregion
+
+        #region Platform dependent code
         public static bool SendAPDU(int readerNumber, byte[] apdu, int apduLen, byte[] result, ref int len)
         {
             if (IsWOW64())
@@ -2533,6 +2590,91 @@ namespace Swelio.Engine
             }
         }
 
+        public static IntPtr InitializeContainer()
+        {
+            if (IsWOW64())
+            {
+                return InitializeContainer64();
+            }
+            else
+            {
+                return InitializeContainer32();
+            }
+        }
+
+        public static void FreeContainer(IntPtr container)
+        {
+            if (IsWOW64())
+            {
+                FreeContainer64(container);
+            }
+            else
+            {
+                FreeContainer32(container);
+            }
+        }
+
+        public static bool SaveContainer(IntPtr container, string fileName)
+        {
+            if (IsWOW64())
+            {
+                return SaveContainer64(container, fileName);
+            }
+            else
+            {
+                return SaveContainer32(container, fileName);
+            }
+        }
+
+        public static bool AddFileToContainer(IntPtr container, string fileName)
+        {
+            if (IsWOW64())
+            {
+                return AddFileToContainer64(container, fileName);
+            }
+            else
+            {
+                return AddFileToContainer32(container, fileName);
+            }
+        }
+
+        public static bool ContainerCertificate(IntPtr container, string fileName, string password)
+        {
+            if (IsWOW64())
+            {
+                return ContainerCertificate64(container, fileName, password);
+            }
+            else
+            {
+                return ContainerCertificate32(container, fileName, password);
+            }
+        }
+
+        public static bool ContainerPickCertificate(IntPtr container)
+        {
+            if (IsWOW64())
+            {
+                return ContainerPickCertificate64(container);
+            }
+            else
+            {
+                return ContainerPickCertificate32(container);
+            }
+        }
+
+        public static bool ContainerEidCertificate(IntPtr container, int readerNumber)
+        {
+            if (IsWOW64())
+            {
+                return ContainerEidCertificate64(container, readerNumber);
+            }
+            else
+            {
+                return ContainerEidCertificate64(container, readerNumber);
+            }
+        }
+
+        #endregion
 
     }
 
