@@ -1,0 +1,19 @@
+Deploying your application with Swelio Library included
+
+Please read this entire file before deploying your applications. 
+Unless otherwise noted, this file pertains to creation and deployment of applications created with Swelio Library. 
+This file is provided pursuant to the Swelio License Terms and provides information on deploying applications. 
+
+When building applications provide your .EXE and Swelio dynamic linked Library (DLL).
+For 32 bit applications your have to provide Swelio32.dll and for 64 bit applications you have to provide Swelio64.dll
+If you are building managed .NET application compiled for AnyCPU you have to provide both Swelio libraries (Swelio32.dll and Swelio64.dll)
+and Swelio assembly Swelio.Engine.dll
+
+You can find all necessary libraries and assemblies in Redist folder.
+
+
+
+AUTHOR RESERVES THE RIGHT TO REMOVE OR MODIFY INDIVIDUAL REDISTRIBUTABLE FILES FROM THIS SOFTWARE PRODUCT, AT ANY TIME PRIOR TO RELEASE OF THE PRODUCT, 
+REGARDLESS OF WHETHER SUCH FILES CONTINUE TO BE LISTED AS "REDISTRIBUTABLE" UPON RELEASE OF THE PRODUCT. 
+AUTHOR SHALL HAVE NO OBLIGATION WHATSOEVER IN CONNECTION WITH ANY FILE WHICH IS LISTED AS "REDISTRIBUTABLE" BUT HAS BEEN REMOVED FROM THE PRODUCT PRIOR TO THE PRODUCT'S RELEASE.
+
