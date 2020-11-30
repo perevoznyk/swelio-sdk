@@ -8,6 +8,8 @@ uses
  Classes;
 
  type
+
+   //ASIC file container allows to create and sign digital document containers
    TAsicContainer = class
    private
      FCertificateSelected : boolean;
@@ -18,6 +20,7 @@ uses
      destructor Destroy; override;
      procedure Close;
      property ReaderNumber : integer read FReaderNumber write FReaderNumber;
+     property CertificateSelected : boolean read FCertificateSelected;
      function Save(FileName : WideString) : boolean;
      function SelectCertificate(EID : boolean) : boolean; overload;
      function SelectCertificate(FileName : WideString; Password : WideString) : boolean; overload;
@@ -57,6 +60,8 @@ end;
 function TAsicContainer.Save(FileName: WideString): boolean;
 begin
   result := false;
+  if not FCertificateSelected then
+    exit;
   if ctx <> nil then
     begin
       result := SaveContainer(ctx, PWideChar(FileName));
@@ -73,6 +78,7 @@ begin
            else
              result := ContainerPickCertificate(ctx);
      end;
+  FCertificateSelected := result;
 end;
 
 function TAsicContainer.SelectCertificate(FileName,
@@ -83,6 +89,7 @@ begin
     begin
       result := ContainerCertificate(ctx, PWideChar(FileName), PWideChar(password));
     end;
+  FCertificateSelected := result;
 end;
 
 end.
