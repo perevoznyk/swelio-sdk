@@ -7,18 +7,22 @@
     <Company>Serhiy Perevoznyk</Company>
     <Product>Swelio</Product>
     <NeutralLanguage>en-US</NeutralLanguage>
+    <Title>Swelio</Title>
+    
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/perevoznyk/swelio-sdk</RepositoryUrl>
     <PackageProjectUrl>https://perevoznyk.wordpress.com</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/perevoznyk/swelio-sdk/master/Swelio_icon.png</PackageIconUrl>
+    <PackageIcon>Swelio_icon.png</PackageIcon>
     <Copyright>Copyright © Serhiy Perevoznyk 2014-2021</Copyright>
     <Description>Belgian eID card SDK</Description>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>enginekey.snk</AssemblyOriginatorKeyFile>
     <PackageTags>sdk smartcard eid</PackageTags>
     <PackageId>Swelio</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="..\..\Swelio_icon.png" Pack="true" PackagePath="\"/>
     <Content Include="..\..\Redist\Swelio32.dll" Link="Swelio32.dll">
       <Pack>true</Pack>
       <PackageCopyToOutput>true</PackageCopyToOutput>
