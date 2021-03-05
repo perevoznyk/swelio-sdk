@@ -192,6 +192,17 @@ namespace Swelio.Engine
                 id.WhiteCane = eid.whiteCane;
                 id.YellowCane = eid.yellowCane;
 
+                id.Duplicate = eid.duplicate;
+                id.SpecialOrganization = eid.specialOrganization;
+                id.MemberOfFamily = eid.memberOfFamily;
+                id.DateAndCountryOfProtection = eid.dateAndCountryOfProtection;
+                id.WorkPermitType = eid.workPermitType;
+                id.Vat1 = eid.vat1;
+                id.Vat2 = eid.vat2;
+                id.RegionalFileNumber = eid.regionalFileNumber;
+                id.BrexitMention1 = eid.brexitMention1;
+                id.BrexitMention2 = eid.brexitMention2;
+
                 return id;
             }
             else

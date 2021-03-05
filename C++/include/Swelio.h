@@ -6,6 +6,8 @@
 //= FITNESS FOR A PARTICULAR PURPOSE.
 //===============================================================================
 
+//05.03.2021 - Applet 1.8 support
+
 #pragma once
 
 #if !defined( _SWELIO_H_ )

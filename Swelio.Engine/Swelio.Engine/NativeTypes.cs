@@ -107,6 +107,27 @@ namespace Swelio.Engine
         /// Max length of the certificate data
         /// </summary>
         public const int EidMaxCertLen = 2048;
+        //Duplicate
+        public const int EidMaxDuplicateLen = 2;
+        // Special organization
+        public const int EidMaxSpecialOrganizationLen = 1;
+        //Member of family
+        public const int EidMaxMemberOfFamilyLen = 1;
+        //Date and country of protection
+        public const int EidMaxDateAndCountryOfProtectionLen = 13;
+        //The type of the workpermit
+        public const int EidMaxWorkPermitTypeLen = 1;
+        //VAT1
+        public const int EidMaxVAT1Len = 13;
+        //VAT2
+        public const int EidMaxVAT2Len = 13;
+        //Regional file number
+        public const int EidMaxRegionalFileNumberLen = 18;
+        //BREXIT mention
+        public const int EidMaxBrexitMention1Len = 1;
+        //BREXIT mention
+        public const int EidMaxBrexitMention2Len = 1;
+
     }
 
     /// <summary>
@@ -206,6 +227,36 @@ namespace Swelio.Engine
         /// </summary>
         [MarshalAs(UnmanagedType.Bool)]
         internal bool extendedMinority;
+
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = EIDDataLength.EidMaxDuplicateLen + 1)]
+        internal string duplicate;
+
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = EIDDataLength.EidMaxSpecialOrganizationLen + 1)]
+        internal string specialOrganization;
+        
+        [MarshalAs(UnmanagedType.Bool)] 
+        internal bool memberOfFamily;
+
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = EIDDataLength.EidMaxDateAndCountryOfProtectionLen + 1)]
+        internal string dateAndCountryOfProtection;
+
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = EIDDataLength.EidMaxWorkPermitTypeLen + 1)]
+        internal string workPermitType;
+
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = EIDDataLength.EidMaxVAT1Len + 1)]
+        internal string vat1;
+
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = EIDDataLength.EidMaxVAT2Len + 1)]
+        internal string vat2;
+
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = EIDDataLength.EidMaxRegionalFileNumberLen + 1)]
+        internal string regionalFileNumber;
+
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = EIDDataLength.EidMaxBrexitMention1Len + 1)]
+        internal string brexitMention1;
+
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = EIDDataLength.EidMaxBrexitMention2Len + 1)]
+        internal string brexitMention2;
     }
 
     /// <summary>

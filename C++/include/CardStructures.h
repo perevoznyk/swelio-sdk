@@ -6,6 +6,8 @@
 //= FITNESS FOR A PARTICULAR PURPOSE.
 //===============================================================================
 
+//05.03.2021 - Applet 1.8 support
+
 #if _MSC_VER > 1000
 #pragma once
 #endif
@@ -59,6 +61,28 @@ extern "C" {
 #define EID_MAX_PICTURE_LEN                             0x1000
 // Maximum length of the certificate data
 #define EID_MAX_CERT_LEN                                0x800
+//Duplicate
+#define EID_MAX_DUPLICATE_LEN							2
+// Special organization
+#define EID_MAX_SPECIALORGANIZATION_LEN					1
+//Member of family
+#define EID_MAX_MEMBEROFFAMILY_LEN						1
+//Date and country of protection
+#define EID_MAX_DATEANDCOUNTRYOFPROTECTION_LEN			13
+//The type of the workpermit
+#define EID_MAX_WORKPERMITTYPE_LEN						1
+//VAT1
+#define EID_MAX_VAT1_LEN								13
+//VAT2
+#define EID_MAX_VAT2_LEN								13
+#define EID_MAX_REGIONALFILENUMBER_LEN					18
+#define EID_MAX_BREXITMENTION1_LEN						1
+#define EID_MAX_BREXITMENTION2_LEN						1
+
+
+
+
+
 
 // Maximum length of the surname field
 #define SIS_MAX_NAME_LEN								0x30
@@ -124,6 +148,16 @@ public:
 	BOOL yellowCane;
     // Extended minority
 	BOOL extendedMinority;
+	char duplicate[EID_MAX_DUPLICATE_LEN + 1];
+	char specialOrganization[EID_MAX_SPECIALORGANIZATION_LEN + 1];
+	BOOL memberOfFamily;
+	char dateAndCountryOfProtection[EID_MAX_DATEANDCOUNTRYOFPROTECTION_LEN + 1];
+	char workPermitType[EID_MAX_WORKPERMITTYPE_LEN + 1];
+	char vat1[EID_MAX_VAT1_LEN + 1];
+	char vat2[EID_MAX_VAT2_LEN + 1];
+	char regionalFileNumber[EID_MAX_REGIONALFILENUMBER_LEN + 1];
+	char brexitMention1[EID_MAX_BREXITMENTION1_LEN + 1];
+	char brexitMention2[EID_MAX_BREXITMENTION2_LEN + 1];
 } EidIdentityA, *PEidIdentityA;
 
 
@@ -167,6 +201,16 @@ public:
 	BOOL yellowCane;
     // Extended minority
 	BOOL extendedMinority;
+	WCHAR duplicate[EID_MAX_DUPLICATE_LEN + 1];
+	WCHAR specialOrganization[EID_MAX_SPECIALORGANIZATION_LEN + 1];
+	BOOL memberOfFamily;
+	WCHAR dateAndCountryOfProtection[EID_MAX_DATEANDCOUNTRYOFPROTECTION_LEN + 1];
+	WCHAR workPermitType[EID_MAX_WORKPERMITTYPE_LEN + 1];
+	WCHAR vat1[EID_MAX_VAT1_LEN + 1];
+	WCHAR vat2[EID_MAX_VAT2_LEN + 1];
+	WCHAR regionalFileNumber[EID_MAX_REGIONALFILENUMBER_LEN + 1];
+	WCHAR brexitMention1[EID_MAX_BREXITMENTION1_LEN + 1];
+	WCHAR brexitMention2[EID_MAX_BREXITMENTION2_LEN + 1];
 } EidIdentityW, *PEidIdentityW;
 
 // Raw picture data from EID card

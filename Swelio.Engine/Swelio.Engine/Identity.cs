@@ -38,7 +38,17 @@ namespace Swelio.Engine
         private bool whiteCane;
         private bool yellowCane;
         private bool extendedMinority;
-
+        //Applet 1.8
+        private string duplicate;
+        private string specialOrganization;
+        private bool memberOfFamily;
+        private string dateAndCountryOfProtection;
+        private string workPermitType;
+        private string vat1;
+        private string vat2;
+        private string regionalFileNumber;
+        private string brexitMention1;
+        private string brexitMention2;
         /// <summary>
         /// Clear all stored information
         /// </summary>
@@ -62,6 +72,17 @@ namespace Swelio.Engine
             whiteCane = false;
             yellowCane = false;
             extendedMinority = false;
+            //Applet 1.8
+            duplicate = string.Empty;
+            specialOrganization = string.Empty;
+            memberOfFamily = false;
+            dateAndCountryOfProtection = string.Empty;
+            workPermitType = string.Empty;
+            vat1 = string.Empty;
+            vat2 = string.Empty;
+            regionalFileNumber = string.Empty;
+            brexitMention1 = string.Empty;
+            brexitMention2 = string.Empty;
         }
         /// <summary>
         /// Electronic ID card number
@@ -266,6 +287,66 @@ namespace Swelio.Engine
         {
             get { return extendedMinority; }
             set { extendedMinority = value; }
+        }
+
+        public string Duplicate
+        {
+            get { return duplicate; }
+            set { duplicate = value; }
+        }
+
+        public string SpecialOrganization
+        {
+            get { return specialOrganization; }
+            set { specialOrganization = value; }
+        }
+
+        public bool MemberOfFamily
+        {
+            get { return memberOfFamily; }
+            set { memberOfFamily = value; }
+        }
+
+        public string DateAndCountryOfProtection
+        {
+            get { return dateAndCountryOfProtection; }
+            set { dateAndCountryOfProtection = value; }
+        }
+
+        public string WorkPermitType
+        {
+            get { return workPermitType; }
+            set { workPermitType = value; }
+        }
+
+        public string Vat1
+        {
+            get { return vat1; }
+            set { vat1 = value; }
+        }
+
+        public string Vat2
+        {
+            get { return vat2; }
+            set { vat2 = value; }
+        }
+
+        public string RegionalFileNumber
+        {
+            get { return regionalFileNumber; }
+            set { regionalFileNumber = value; }
+        }
+
+        public string BrexitMention1
+        {
+            get { return brexitMention1; }
+            set { brexitMention1 = value; }
+        }
+
+        public string BrexitMention2
+        {
+            get { return brexitMention2; }
+            set { brexitMention2 = value; }
         }
     }
 }

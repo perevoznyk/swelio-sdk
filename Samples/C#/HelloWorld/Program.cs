@@ -41,8 +41,12 @@ namespace HelloWorld
                         Console.WriteLine("Welcome {0} {1}", identity.FirstName1, identity.Surname);
                     }
 
-                    //string csv = card.Save(ExportFormat.Csv, FileEncoding.Unicode);
-                    //Console.WriteLine(csv);
+                   // string csv = card.Save(ExportFormat.Csv);
+                   // Console.WriteLine(csv);
+                }
+                else
+                {
+                    Console.WriteLine("Card is not detected in the reader");
                 }
                 reader.DeactivateCard();
             }
@@ -50,25 +54,20 @@ namespace HelloWorld
 
             //Card insertion and removal test
             card = reader.GetCard();
-            if (reader.CardPresent)
-                card = reader.GetCard();
-
-            Console.WriteLine("Please remove ID card from the reader and press Enter");
-            Console.ReadLine();
-
-            if (card.Inserted)
+            if (card != null)
             {
-                Console.WriteLine("The card is still inserted in the reader");
-            }
+                if (reader.CardPresent)
+                    card = reader.GetCard();
 
-            Console.WriteLine();
-            byte[] md5sum = Encryption.GetMD5("message digest");
-            for (byte j = 0; j < 16; j++)
-            {
-                Console.Write("{0:X2}", md5sum[j]);
+                Console.WriteLine("Please remove ID card from the reader and press Enter");
+                Console.ReadLine();
+
+                if (card.Inserted)
+                {
+                    Console.WriteLine("The card is still inserted in the reader");
+                }
             }
             Console.WriteLine();
-
 
             engine.Dispose();
             Console.WriteLine("Press Enter to quit...");
