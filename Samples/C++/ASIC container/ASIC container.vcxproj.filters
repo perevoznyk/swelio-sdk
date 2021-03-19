@@ -23,19 +23,19 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="..\..\..\..\swelio-delphi\Samples\ASIC Container\test2.pdf">
+    <CopyFileToFolders Include="test2.pdf">
       <Filter>Certificate</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\..\..\..\swelio-delphi\Samples\ASIC Container\make_certificate.cmd">
+    <CopyFileToFolders Include="make_certificate.cmd">
       <Filter>Certificate</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\..\..\..\swelio-delphi\Samples\ASIC Container\test_pkcs12.pfx">
+    <CopyFileToFolders Include="test_pkcs12.pfx">
       <Filter>Certificate</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\..\..\..\swelio-delphi\Samples\ASIC Container\test1.docx">
+    <CopyFileToFolders Include="test1.docx">
       <Filter>Certificate</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\..\..\..\swelio-delphi\Samples\ASIC Container\test1.pdf">
+    <CopyFileToFolders Include="test1.pdf">
       <Filter>Certificate</Filter>
     </CopyFileToFolders>
   </ItemGroup>

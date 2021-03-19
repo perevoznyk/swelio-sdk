@@ -14,6 +14,7 @@ int main()
 
 	AddFileToContainer(ctx, (LPSTR)"test1.pdf");
 	AddFileToContainer(ctx, (LPSTR)"test2.pdf");
+	AddFileToContainer(ctx, (LPSTR)"test1.docx");
 
 	SaveContainer(ctx, (LPWSTR)L"test.asice");
 	FreeContainer(ctx);
