@@ -129,6 +129,7 @@ void WINAPI GetPNGA(LPSTR text, int margin, int size, int level, LPINT bufSize, 
  //  buffer :  The memory buffer                                   
 void WINAPI DestroyImageBuffer(void* buffer);
 
+//DOM-IGNORE-BEGIN
 #ifdef UNICODE
 #define GeneratePNG  GeneratePNGW
 #define GetHBitmap  GetHBitmapW
@@ -140,6 +141,7 @@ void WINAPI DestroyImageBuffer(void* buffer);
 #define GenerateBMP  GenerateBMPA
 #define GetPNG  GetPNGA
 #endif // !UNICODE
+//DOM-IGNORE-END
 
 #ifdef __cplusplus
 }

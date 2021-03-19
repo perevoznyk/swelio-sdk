@@ -1,32 +1,55 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileOperationsDemo", "FileOperationsDemo\FileOperationsDemo.vcproj", "{5116DBBF-2B51-410F-A772-1B6DA1DCF887}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileOperationsDemo", "FileOperationsDemo\FileOperationsDemo.vcxproj", "{5116DBBF-2B51-410F-A772-1B6DA1DCF887}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EncryptDecryptFile", "EncryptDecryptFile\EncryptDecryptFile.vcproj", "{A573B4C5-9EF0-4409-86E9-1ECEE58D9C1F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EncryptDecryptFile", "EncryptDecryptFile\EncryptDecryptFile.vcxproj", "{A573B4C5-9EF0-4409-86E9-1ECEE58D9C1F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EngineSample", "EngineSample\EngineSample.vcproj", "{E0656977-4DC4-4ED1-BBE8-5B243AFF4681}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EngineSample", "EngineSample\EngineSample.vcxproj", "{E0656977-4DC4-4ED1-BBE8-5B243AFF4681}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ASIC container", "ASIC container\ASIC container.vcxproj", "{3B6B2C45-FD09-4C28-B3D4-4B951D5B6C1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5116DBBF-2B51-410F-A772-1B6DA1DCF887}.Debug|Win32.ActiveCfg = Debug|Win32
 		{5116DBBF-2B51-410F-A772-1B6DA1DCF887}.Debug|Win32.Build.0 = Debug|Win32
+		{5116DBBF-2B51-410F-A772-1B6DA1DCF887}.Debug|x64.ActiveCfg = Debug|Win32
 		{5116DBBF-2B51-410F-A772-1B6DA1DCF887}.Release|Win32.ActiveCfg = Release|Win32
 		{5116DBBF-2B51-410F-A772-1B6DA1DCF887}.Release|Win32.Build.0 = Release|Win32
+		{5116DBBF-2B51-410F-A772-1B6DA1DCF887}.Release|x64.ActiveCfg = Release|Win32
 		{A573B4C5-9EF0-4409-86E9-1ECEE58D9C1F}.Debug|Win32.ActiveCfg = Debug|Win32
 		{A573B4C5-9EF0-4409-86E9-1ECEE58D9C1F}.Debug|Win32.Build.0 = Debug|Win32
+		{A573B4C5-9EF0-4409-86E9-1ECEE58D9C1F}.Debug|x64.ActiveCfg = Debug|Win32
 		{A573B4C5-9EF0-4409-86E9-1ECEE58D9C1F}.Release|Win32.ActiveCfg = Release|Win32
 		{A573B4C5-9EF0-4409-86E9-1ECEE58D9C1F}.Release|Win32.Build.0 = Release|Win32
+		{A573B4C5-9EF0-4409-86E9-1ECEE58D9C1F}.Release|x64.ActiveCfg = Release|Win32
 		{E0656977-4DC4-4ED1-BBE8-5B243AFF4681}.Debug|Win32.ActiveCfg = Debug|Win32
 		{E0656977-4DC4-4ED1-BBE8-5B243AFF4681}.Debug|Win32.Build.0 = Debug|Win32
+		{E0656977-4DC4-4ED1-BBE8-5B243AFF4681}.Debug|x64.ActiveCfg = Debug|Win32
 		{E0656977-4DC4-4ED1-BBE8-5B243AFF4681}.Release|Win32.ActiveCfg = Release|Win32
 		{E0656977-4DC4-4ED1-BBE8-5B243AFF4681}.Release|Win32.Build.0 = Release|Win32
+		{E0656977-4DC4-4ED1-BBE8-5B243AFF4681}.Release|x64.ActiveCfg = Release|Win32
+		{3B6B2C45-FD09-4C28-B3D4-4B951D5B6C1A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3B6B2C45-FD09-4C28-B3D4-4B951D5B6C1A}.Debug|Win32.Build.0 = Debug|Win32
+		{3B6B2C45-FD09-4C28-B3D4-4B951D5B6C1A}.Debug|x64.ActiveCfg = Debug|x64
+		{3B6B2C45-FD09-4C28-B3D4-4B951D5B6C1A}.Debug|x64.Build.0 = Debug|x64
+		{3B6B2C45-FD09-4C28-B3D4-4B951D5B6C1A}.Release|Win32.ActiveCfg = Release|Win32
+		{3B6B2C45-FD09-4C28-B3D4-4B951D5B6C1A}.Release|Win32.Build.0 = Release|Win32
+		{3B6B2C45-FD09-4C28-B3D4-4B951D5B6C1A}.Release|x64.ActiveCfg = Release|x64
+		{3B6B2C45-FD09-4C28-B3D4-4B951D5B6C1A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {854D1ED0-F7CC-4CEF-A24C-A9281C86AF52}
 	EndGlobalSection
 EndGlobal

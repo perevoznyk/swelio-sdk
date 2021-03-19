@@ -61,22 +61,25 @@ extern "C" {
 #define EID_MAX_PICTURE_LEN                             0x1000
 // Maximum length of the certificate data
 #define EID_MAX_CERT_LEN                                0x800
-//Duplicate
+// Maximum length of the Duplicate field
 #define EID_MAX_DUPLICATE_LEN							2
-// Special organization
+// Maximum length of the Special organization field
 #define EID_MAX_SPECIALORGANIZATION_LEN					1
-//Member of family
+// Maximum length of the Member of family field
 #define EID_MAX_MEMBEROFFAMILY_LEN						1
-//Date and country of protection
+// Maximum length of theDate and country of protection field
 #define EID_MAX_DATEANDCOUNTRYOFPROTECTION_LEN			13
-//The type of the workpermit
+// Maximum length of the type of the workpermit
 #define EID_MAX_WORKPERMITTYPE_LEN						1
-//VAT1
+// Maximum length of the VAT1 field
 #define EID_MAX_VAT1_LEN								13
-//VAT2
+// Maximum length of the VAT2 field
 #define EID_MAX_VAT2_LEN								13
+// Maximum length of regional file number field
 #define EID_MAX_REGIONALFILENUMBER_LEN					18
+// Maximum length of the BREXIT mention field
 #define EID_MAX_BREXITMENTION1_LEN						1
+// Maximum length of the BREXIT mention field
 #define EID_MAX_BREXITMENTION2_LEN						1
 
 
@@ -148,15 +151,25 @@ public:
 	BOOL yellowCane;
     // Extended minority
 	BOOL extendedMinority;
+	// Duplicata
 	char duplicate[EID_MAX_DUPLICATE_LEN + 1];
+	// Special Organization
 	char specialOrganization[EID_MAX_SPECIALORGANIZATION_LEN + 1];
+	// Member of family
 	BOOL memberOfFamily;
+	// Date and country of protection
 	char dateAndCountryOfProtection[EID_MAX_DATEANDCOUNTRYOFPROTECTION_LEN + 1];
+	// Work Permit type
 	char workPermitType[EID_MAX_WORKPERMITTYPE_LEN + 1];
+	// Employer VAT1
 	char vat1[EID_MAX_VAT1_LEN + 1];
+	// Employer VAT2
 	char vat2[EID_MAX_VAT2_LEN + 1];
+	// Regional file number
 	char regionalFileNumber[EID_MAX_REGIONALFILENUMBER_LEN + 1];
+	// BREXIT
 	char brexitMention1[EID_MAX_BREXITMENTION1_LEN + 1];
+	// BREXIT
 	char brexitMention2[EID_MAX_BREXITMENTION2_LEN + 1];
 } EidIdentityA, *PEidIdentityA;
 
@@ -201,15 +214,25 @@ public:
 	BOOL yellowCane;
     // Extended minority
 	BOOL extendedMinority;
+	// Duplicata
 	WCHAR duplicate[EID_MAX_DUPLICATE_LEN + 1];
+	// Special Organization
 	WCHAR specialOrganization[EID_MAX_SPECIALORGANIZATION_LEN + 1];
+	// Member of family
 	BOOL memberOfFamily;
+	// Date and country of protection
 	WCHAR dateAndCountryOfProtection[EID_MAX_DATEANDCOUNTRYOFPROTECTION_LEN + 1];
+	// Work permit type
 	WCHAR workPermitType[EID_MAX_WORKPERMITTYPE_LEN + 1];
+	// Employer VAT1
 	WCHAR vat1[EID_MAX_VAT1_LEN + 1];
+	// Employer VAT2
 	WCHAR vat2[EID_MAX_VAT2_LEN + 1];
+	// Regional file number
 	WCHAR regionalFileNumber[EID_MAX_REGIONALFILENUMBER_LEN + 1];
+	// BREXIT
 	WCHAR brexitMention1[EID_MAX_BREXITMENTION1_LEN + 1];
+	// BREXIT
 	WCHAR brexitMention2[EID_MAX_BREXITMENTION2_LEN + 1];
 } EidIdentityW, *PEidIdentityW;
 
@@ -318,7 +341,7 @@ public:
 } SISRecordW, *PSISRecordW;
 
 
-
+//DOM-IGNORE-BEGIN
 #ifdef UNICODE
 #define EidIdentity EidIdentityW
 #define PEidIdentity PEidIdentityW
@@ -334,7 +357,7 @@ public:
 #define SISRecord SISRecordA
 #define PSISRecord PSISRecordA
 #endif
-
+//DOM-IGNORE-END
 #ifdef __cplusplus
 }
 #endif

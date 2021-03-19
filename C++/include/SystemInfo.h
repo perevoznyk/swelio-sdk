@@ -69,12 +69,13 @@ void WINAPI CurrentIPAddressA(LPSTR address, UINT len);
 //Returns TRUE if Windows Recyce Bin is empty
 BOOL WINAPI RecycleBinEmpty();
 
+//DOM-IGNORE-BEGIN
 #ifdef UNICODE
 #define CurrentIPAddress CurrentIPAddressW
 #else
 #define CurrentIPAddress CurrentIPAddressA
 #endif
-
+//DOM-IGNORE-END
 #ifdef __cplusplus
 }
 #endif

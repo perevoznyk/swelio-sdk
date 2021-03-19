@@ -276,6 +276,7 @@ BOOL WINAPI CardDecryptFileW(LPWSTR szSource, LPWSTR szDestination);
  //  szDestination :  The name of the decrypted file        
 BOOL WINAPI CardDecryptFileA(LPSTR szSource, LPSTR szDestination);
 
+//DOM-IGNORE-BEGIN
 #ifdef UNICODE
 #define GetFileSHA1 GetFileSHA1W
 #define GetFileSHA256 GetFileSHA256W
@@ -293,6 +294,7 @@ BOOL WINAPI CardDecryptFileA(LPSTR szSource, LPSTR szDestination);
 #define CardEncryptFile CardEncryptFileA
 #define CardDecryptFile CardDecryptFileA
 #endif
+//DOM-IGNORE-END
 
 #ifdef __cplusplus
 }

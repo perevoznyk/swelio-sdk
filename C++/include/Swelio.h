@@ -1385,8 +1385,28 @@ BOOL WINAPI SaveCardToToXMLStreamExA(int readerNumber, void* buffer);
 //		The size of the XML or CSV buffer
 int WINAPI GetCardBufferSize(void* buffer);
 
+// Summary:
+//		Gets XML or CSV information from the  memory buffer
+// Description:
+//		Use this function to get the card information in CSV or XML format from the memory buffer
+// Arguments:
+//		buffer: Memory buffer with information
+//		strDest: Destination buffer
+//		count: Destination buffer size
+// Return Value:
+//		None
 void WINAPI GetCardBufferA(void* buffer, void* strDest, int count);
 
+// Summary:
+//		Gets XML or CSV information from the  memory buffer
+// Description:
+//		Use this function to get the card information in CSV or XML format from the memory buffer
+// Arguments:
+//		buffer: Memory buffer with information
+//		strDest: Destination buffer
+//		count: Destination buffer size
+// Return Value:
+//		None
 void WINAPI GetCardBufferW(void* buffer, void* strDest, int count);
 
 // Summary:
@@ -1405,10 +1425,40 @@ void WINAPI DeleteCardBuffer(void* buffer);
 //		The memory buffer to store information	
 void* WINAPI CreateCardBuffer();
 
+// Summary:
+//      Read eID card and save the identity information to CSV memory buffer
+// Description:
+//      Use this function to read the information about the owner of the card and
+//      save it to CSV memory buffer.
+// Arguments:
+//		readerNumber - the card reader index
+//      buffer - Memory buffer
+// Return Value:
+//      Returns TRUE if the information is retrieved from the card, otherwise returns FALSE
 BOOL WINAPI SavePersonCsvToStreamW(int readerNumber, void* buffer);
 
+// Summary:
+//      Read eID card and save the identity information to CSV memory buffer
+// Description:
+//      Use this function to read the information about the owner of the card and
+//      save it to CSV memory buffer.
+// Arguments:
+//		readerNumber - the card reader index
+//      buffer - Memory buffer
+// Return Value:
+//      Returns TRUE if the information is retrieved from the card, otherwise returns FALSE
 BOOL WINAPI SavePersonCsvToStreamA(int readerNumber, void* buffer);
 
+// Summary:	
+//		Get the serial number of EID card
+// Description:
+//		Use this function to get the serial number of EID card into the memory buffer
+//	Arguments:
+//		readerNumber - The zero-based index of the card reader. 
+//		serialNumber - The memory buffer for getting the card serial number
+//		serialNumberSize - the size of the memory buffer in bytes
+// Return Value:
+//      Returns TRUE if the information is retrieved from the card, otherwise returns FALSE
 BOOL WINAPI GetCardSerialNumber(int readerNumber,  BYTE* serialNumber, LPDWORD serialNumberSize);
 
 // Summary:
@@ -1439,25 +1489,113 @@ BOOL WINAPI CardSignCMS(int readerNumber, BYTE *data, UINT dataLen, BYTE *signat
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CardSignCadesT(int readerNumber, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
 
+// Summary:
+//		Sign data with the certificate file according to CMS standard
+// Description:
+//		Create CMS signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		certificate - The name of the certificate file
+//      password - The private key password  
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CertSignCMS(LPWSTR certificate, LPWSTR password, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
 
+// Summary:
+//		Sign data with the certificate file according to CADES-T standard
+// Description:
+//		Create CADES-T signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		certificate - The name of the certificate file
+//      password - The private key password  
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CertSignCadesT(LPWSTR certificate, LPWSTR password, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
 
-//ASIC containers
+// Summary:
+//		Initializes ASIC container
+// Description:
+//		This functions initializes container handle needed for all container operations.
+//		Must be called first prior to other container-related calls
+// Arguments:
+//		Returns container handle which is used for all operations with the container
+// Return value:
+//		Retrns container handle pointer
 LPVOID WINAPI InitializeContainer();
 
+// Summary:
+//		Deallocates ASIC container 
+// Description:
+//		Call this function to deallocate container memory and release container handle. 
+// Arguments:
+//		container: Container handle, which is allocated by calling InitializeContainer function
+// Return value:
+//		None
 void WINAPI FreeContainer(LPVOID container);
 
+// Summary:
+//		Save container to the file
+// Description:
+//		After adding all necessary files to the container call this function to save 
+//		container to the file
+// Arguments:
+//		container: Container handle, which is allocated by calling InitializeContainer function
+//		fileName: Desired name of the container file 
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI SaveContainer(LPVOID container, LPWSTR fileName);
 
+// Summary:
+//		Add existing file to the container
+// Description:
+//		Call this function to include the file to the container. The file must exist.
+// Arguments:
+//		container: Container handle, which is allocated by calling InitializeContainer function
+//		fileName: The name of the file which will be added to the container 
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI AddFileToContainer(LPVOID container, LPSTR fileName);
 
+// Summary:
+//		Assign certificate for signing ASIC container
+// Description:
+//		Use this function to assign certificate which will be used to sign container at 
+//		the moment when container will be saved to the file
+// Arguments:
+//		container: Container handle, which is allocated by calling InitializeContainer function
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI ContainerCertificate(LPVOID container, LPWSTR fileName, LPWSTR password);
 
+// Summary:
+//		Pick certificate to sign ASIC container
+// Description:
+//		Use this function to let user pick the certificate to sign ASIC contaner
+//		The dialog to choose the certificate will be shown to the user
+// Arguments:
+//		container: Container handle, which is allocated by calling InitializeContainer function
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI ContainerPickCertificate(LPVOID container);
 
+// Summary:
+//		Select EID card certificate to sign ASIC container
+// Description:
+//		Call this function to select EID certificate to sign ASIC container
+// Arguments:
+//		container: Container handle, which is allocated by calling InitializeContainer function
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI ContainerEidCertificate(LPVOID container, int readerNumber);
 
+//DOM-IGNORE-BEGIN
 #ifdef UNICODE
 #define SelectReaderByName SelectReaderByNameW
 #define GetReaderNameLen GetReaderNameLenW
@@ -1537,6 +1675,7 @@ BOOL WINAPI ContainerEidCertificate(LPVOID container, int readerNumber);
 #define SaveCardToToXMLStreamEx SaveCardToToXMLStreamExA
 #define SavePersonCsvToStream SavePersonCsvToStreamA
 #endif
+//DOM-IGNORE-END
 
 #ifdef __cplusplus
 }

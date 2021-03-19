@@ -669,6 +669,7 @@ void WINAPI GetAllFiles(FOLDERENUMPROC lpEnumProc, LPWSTR folderName, LPWSTR sea
  //  otherwise returns FALSE
 BOOL WINAPI FileIsLink(LPCWSTR fileName);
 
+//DOM-IGNORE-BEGIN
 #ifdef UNICODE
 #define CreateUnicodeFile		CreateUnicodeFileW
 #define IsUnicodeFile			IsUnicodeFileW
@@ -732,6 +733,7 @@ BOOL WINAPI FileIsLink(LPCWSTR fileName);
 #define WriteBufferToFile		WriteBufferToFileA
 #define ReadBufferFromFile		ReadBufferFromFileA
 #endif
+//DOM-IGNORE-END
 
 #ifdef __cplusplus
 }

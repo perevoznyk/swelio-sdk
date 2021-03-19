@@ -358,6 +358,7 @@ void WINAPI RestoreWindowSubclassA(HWND hwnd);
 
 void fpreset();
 
+//DOM-IGNORE-BEGIN
 #ifdef UNICODE
 #define GetStartup GetStartupW
 #define SetStartup SetStartupW
@@ -385,6 +386,7 @@ void fpreset();
 #define DeallocateHWND DeallocateHWNDA
 #define RestoreWindowSubclass RestoreWindowSubclassA
 #endif
+//DOM-IGNORE-END
 
 #ifdef __cplusplus
 }
