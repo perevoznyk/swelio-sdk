@@ -12,6 +12,7 @@ using System.Text;
 
 namespace Swelio.Engine
 {
+    /// <summary>The type of the cerificate</summary>
     public enum CertificateType
     {
         CaCertificate,

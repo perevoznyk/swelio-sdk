@@ -357,7 +357,7 @@ public:
 #define SISRecord SISRecordA
 #define PSISRecord PSISRecordA
 #endif
-//DOM-IGNORE-END
+//DOM-IGNORE-END 
 #ifdef __cplusplus
 }
 #endif
