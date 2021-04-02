@@ -17,9 +17,12 @@
 #include "CardStructures.h"
 #include "CardEvents.h"
 
+
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+
 
 // Summary: 
 //     Set the compatibility mode with the old version of the oficial EID MiddleWare
@@ -1475,6 +1478,8 @@ BOOL WINAPI GetCardSerialNumber(int readerNumber,  BYTE* serialNumber, LPDWORD s
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CardSignCMS(int readerNumber, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
 
+BOOL WINAPI CardSignCMSEx(int readerNumber, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* Error);
+
 // Summary:
 //		Sign data with eID card according to CADES-T standard
 // Description:
@@ -1488,6 +1493,8 @@ BOOL WINAPI CardSignCMS(int readerNumber, BYTE *data, UINT dataLen, BYTE *signat
 // Return value:
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CardSignCadesT(int readerNumber, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
+
+BOOL WINAPI CardSignCadesTEx(int readerNumber, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
 
 // Summary:
 //		Sign data with the certificate file according to CMS standard
@@ -1504,6 +1511,8 @@ BOOL WINAPI CardSignCadesT(int readerNumber, BYTE *data, UINT dataLen, BYTE *sig
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CertSignCMS(LPWSTR certificate, LPWSTR password, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
 
+BOOL WINAPI CertSignCMSEx(LPWSTR certificate, LPWSTR password, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
+
 // Summary:
 //		Sign data with the certificate file according to CADES-T standard
 // Description:
@@ -1518,6 +1527,8 @@ BOOL WINAPI CertSignCMS(LPWSTR certificate, LPWSTR password, BYTE *data, UINT da
 // Return value:
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CertSignCadesT(LPWSTR certificate, LPWSTR password, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
+
+BOOL WINAPI CertSignCadesTEx(LPWSTR certificate, LPWSTR password, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
 
 // Summary:
 //		Initializes ASIC container

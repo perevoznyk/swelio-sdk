@@ -81,7 +81,8 @@ extern "C" {
 #define EID_MAX_BREXITMENTION1_LEN						1
 // Maximum length of the BREXIT mention field
 #define EID_MAX_BREXITMENTION2_LEN						1
-
+// Maximum error description length 
+#define ERROR_MAX_DESCRIPTION							254
 
 
 
@@ -110,6 +111,18 @@ extern "C" {
 // Maximum length of the car number field
 #define SIS_FIELD_MAX_CARDNUMBER_LEN					0xa
 
+#define ERR_NO_DATA				1
+#define ERR_NO_CERTIFICATE		2
+#define ERR_NO_PRIVATE_KEY		3
+#define ERR_CERTIFICATE_ATTR	4
+#define ERR_MESSAGE_DECODE		5
+#define ERR_MESSAGE_PARAM		6
+#define ERR_MESSAGE_UPDATE		7
+#define ERR_OPEN_CERTIFICATE	8
+#define ERR_CARD_ERROR			9
+#define ERR_MESSAGE_ENCODE		10
+#define ERR_TIMESTAMP			11
+#define ERR_SIGN_ERROR			12
 
 // Identity information stored on EID card - ANSI version
 typedef struct tagEidIdentityA
@@ -340,6 +353,12 @@ public:
 	WCHAR CardName[SIS_MAX_CARDNAME_LEN +1 ];
 } SISRecordW, *PSISRecordW;
 
+//Information about error when operation with the card or certificate is performed
+typedef struct structErrorInformation
+{
+	int Code;
+	TCHAR Description[ERROR_MAX_DESCRIPTION + 1];
+} ErrorInformation, *PErrorInformation;
 
 //DOM-IGNORE-BEGIN
 #ifdef UNICODE
