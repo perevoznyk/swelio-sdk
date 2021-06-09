@@ -8,7 +8,7 @@ int main()
 {
 	LPVOID ctx = InitializeContainer();
 
-	ContainerCertificate(ctx, (LPWSTR)L"test_pkcs12.pfx", (LPWSTR)L"test");
+	ContainerCertificate(ctx, (LPWSTR)L"dri.products.pfx", (LPWSTR)L"delphi");
 	//ContainerPickCertificate(ctx);
 	//ContainerEidCertificate(ctx, 0);
 
@@ -16,7 +16,7 @@ int main()
 	AddFileToContainer(ctx, (LPSTR)"test2.pdf");
 	AddFileToContainer(ctx, (LPSTR)"test1.docx");
 
-	SaveContainer(ctx, (LPWSTR)L"test.asice");
+	SaveContainer(ctx, (LPWSTR)L"test2.asice");
 	FreeContainer(ctx);
 }
 

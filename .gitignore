@@ -287,3 +287,10 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 Swelio SDK
+/Samples/C++/ASIC container/v3.ext
+/Samples/C++/ASIC container/test.key
+/Samples/C++/ASIC container/test.csr
+/Samples/C++/ASIC container/test.crt
+/Samples/C++/ASIC container/test.asice
+/Samples/C++/ASIC container/myKey.pem
+/Samples/C++/ASIC container/gencrt.cmd

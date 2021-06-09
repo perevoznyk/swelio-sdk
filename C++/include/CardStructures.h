@@ -186,6 +186,72 @@ public:
 	char brexitMention2[EID_MAX_BREXITMENTION2_LEN + 1];
 } EidIdentityA, *PEidIdentityA;
 
+// Identity information stored on EID card - ANSI version
+typedef struct tagEidIdentityExA
+{
+public:
+	//The size of the structure
+	WORD nSize;
+	//The version of the structure
+	WORD nVersion;
+	// Electronic ID card number
+	char cardNumber[EID_MAX_CARD_NUMBER_LEN + 1];
+	// Electronic ID card physical chip number
+	char chipNumber[EID_MAX_CHIP_NUMBER_LEN + 1];
+	// Card validity start date 
+	char validityDateBegin[EID_MAX_DATE_BEGIN_LEN + 1];
+	// Card validity end date
+	char validityDateEnd[EID_MAX_DATE_END_LEN + 1];
+	// Card delivery municipality
+	char municipality[EID_MAX_DELIVERY_MUNICIPALITY_LEN + 1];
+	// National number
+	char nationalNumber[EID_MAX_NATIONAL_NUMBER_LEN + 1];
+	// Surname
+	char name[EID_MAX_NAME_LEN + 1];
+	// First name (2 first given names)
+	char firstName1[EID_MAX_FIRST_NAME1_LEN + 1];
+	// First name part 2 (first letter of the 3rd given name).
+	char firstName2[EID_MAX_FIRST_NAME2_LEN + 1];
+	// Nationality
+	char nationality[EID_MAX_NATIONALITY_LEN + 1];
+	// Birth location
+	char birthLocation[EID_MAX_BIRTHPLACE_LEN + 1];
+	// Birth date
+	char birthDate[EID_MAX_BIRTHDATE_LEN + 1];
+	// Sex
+	char sex[EID_MAX_SEX_LEN + 1];
+	// Noble condition
+	char nobleCondition[EID_MAX_NOBLE_CONDITION_LEN + 1];
+	// Document type code (Belgian citizen card, Kids Card, Foreigner card)
+	int documentType;
+	// White cane (blind people)
+	BOOL whiteCane;
+	// Yellow cane (partially sighted people)
+	BOOL yellowCane;
+	// Extended minority
+	BOOL extendedMinority;
+	// Duplicata
+	char duplicate[EID_MAX_DUPLICATE_LEN + 1];
+	// Special Organization
+	char specialOrganization[EID_MAX_SPECIALORGANIZATION_LEN + 1];
+	// Member of family
+	BOOL memberOfFamily;
+	// Date and country of protection
+	char dateAndCountryOfProtection[EID_MAX_DATEANDCOUNTRYOFPROTECTION_LEN + 1];
+	// Work Permit type
+	char workPermitType[EID_MAX_WORKPERMITTYPE_LEN + 1];
+	// Employer VAT1
+	char vat1[EID_MAX_VAT1_LEN + 1];
+	// Employer VAT2
+	char vat2[EID_MAX_VAT2_LEN + 1];
+	// Regional file number
+	char regionalFileNumber[EID_MAX_REGIONALFILENUMBER_LEN + 1];
+	// BREXIT
+	char brexitMention1[EID_MAX_BREXITMENTION1_LEN + 1];
+	// BREXIT
+	char brexitMention2[EID_MAX_BREXITMENTION2_LEN + 1];
+} EidIdentityExA, * PEidIdentityExA;
+
 
 // Identity information stored on EID card - UNICODE version
 typedef struct tagEidIdentityW
@@ -248,6 +314,72 @@ public:
 	// BREXIT
 	WCHAR brexitMention2[EID_MAX_BREXITMENTION2_LEN + 1];
 } EidIdentityW, *PEidIdentityW;
+
+// Identity information stored on EID card - UNICODE version
+typedef struct tagEidIdentityExW
+{
+public:
+	//The size of the structure
+	WORD nSize;
+	//The version of the structure
+	WORD nVersion;
+	// Electronic ID card number
+	WCHAR cardNumber[EID_MAX_CARD_NUMBER_LEN + 1];
+	// Electronic ID card physical chip number
+	WCHAR chipNumber[EID_MAX_CHIP_NUMBER_LEN + 1];
+	// Card validity start date 
+	WCHAR validityDateBegin[EID_MAX_DATE_BEGIN_LEN + 1];
+	// Card validity end date
+	WCHAR validityDateEnd[EID_MAX_DATE_END_LEN + 1];
+	// Card delivery municipality
+	WCHAR municipality[EID_MAX_DELIVERY_MUNICIPALITY_LEN + 1];
+	// National number
+	WCHAR nationalNumber[EID_MAX_NATIONAL_NUMBER_LEN + 1];
+	// Surname
+	WCHAR name[EID_MAX_NAME_LEN + 1];
+	// First name (2 first given names)
+	WCHAR firstName1[EID_MAX_FIRST_NAME1_LEN + 1];
+	// First name part 2 (first letter of the 3rd given name).
+	WCHAR firstName2[EID_MAX_FIRST_NAME2_LEN + 1];
+	// Nationality
+	WCHAR nationality[EID_MAX_NATIONALITY_LEN + 1];
+	// Birth location
+	WCHAR birthLocation[EID_MAX_BIRTHPLACE_LEN + 1];
+	// Birth date
+	WCHAR birthDate[EID_MAX_BIRTHDATE_LEN + 1];
+	// Sex
+	WCHAR sex[EID_MAX_SEX_LEN + 1];
+	// Noble condition
+	WCHAR nobleCondition[EID_MAX_NOBLE_CONDITION_LEN + 1];
+	// Document type code (Belgian citizen card, Kids Card, Foreigner card)
+	int documentType;
+	// White cane (blind people)
+	BOOL whiteCane;
+	// Yellow cane (partially sighted people)
+	BOOL yellowCane;
+	// Extended minority
+	BOOL extendedMinority;
+	// Duplicata
+	WCHAR duplicate[EID_MAX_DUPLICATE_LEN + 1];
+	// Special Organization
+	WCHAR specialOrganization[EID_MAX_SPECIALORGANIZATION_LEN + 1];
+	// Member of family
+	BOOL memberOfFamily;
+	// Date and country of protection
+	WCHAR dateAndCountryOfProtection[EID_MAX_DATEANDCOUNTRYOFPROTECTION_LEN + 1];
+	// Work permit type
+	WCHAR workPermitType[EID_MAX_WORKPERMITTYPE_LEN + 1];
+	// Employer VAT1
+	WCHAR vat1[EID_MAX_VAT1_LEN + 1];
+	// Employer VAT2
+	WCHAR vat2[EID_MAX_VAT2_LEN + 1];
+	// Regional file number
+	WCHAR regionalFileNumber[EID_MAX_REGIONALFILENUMBER_LEN + 1];
+	// BREXIT
+	WCHAR brexitMention1[EID_MAX_BREXITMENTION1_LEN + 1];
+	// BREXIT
+	WCHAR brexitMention2[EID_MAX_BREXITMENTION2_LEN + 1];
+} EidIdentityExW, * PEidIdentityExW;
 
 // Raw picture data from EID card
 typedef struct tagEidPicture
