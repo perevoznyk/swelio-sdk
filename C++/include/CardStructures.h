@@ -489,7 +489,7 @@ public:
 typedef struct structErrorInformation
 {
 	int Code;
-	TCHAR Description[ERROR_MAX_DESCRIPTION + 1];
+	WCHAR Description[ERROR_MAX_DESCRIPTION + 1];
 } ErrorInformation, *PErrorInformation;
 
 //DOM-IGNORE-BEGIN
