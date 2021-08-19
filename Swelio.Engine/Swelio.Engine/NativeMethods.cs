@@ -35,6 +35,9 @@ namespace Swelio.Engine
 
         #region x32 API
 
+        [DllImport("Swelio32.dll", EntryPoint = "GetCardVersion", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.StdCall)]
+        private static extern int GetCardVersion32(int readerNumber);
+
         [DllImport("Swelio32.dll", EntryPoint = "IsCardActivatedEx", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.StdCall)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool IsCardActivatedEx32(int readerNumber);
@@ -514,6 +517,10 @@ namespace Swelio.Engine
         #endregion
 
         #region x64 API
+
+        [DllImport("Swelio64.dll", EntryPoint = "GetCardVersion", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.StdCall)]
+        private static extern int GetCardVersion64(int readerNumber);
+
         [DllImport("Swelio64.dll", EntryPoint = "SendAPDU", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true, ExactSpelling = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SendAPDU64(int readerNumber, byte[] apdu, int apduLen, byte[] result, ref int len);
@@ -993,6 +1000,19 @@ namespace Swelio.Engine
         #endregion
 
         #region Platform dependent code
+
+        public static int GetCardVersion(int readerNumber)
+        {
+            if (IsWOW64())
+            {
+                return GetCardVersion64(readerNumber);
+            }
+            else
+            {
+                return GetCardVersion32(readerNumber);
+            }
+        }
+
         public static bool SendAPDU(int readerNumber, byte[] apdu, int apduLen, byte[] result, ref int len)
         {
             if (IsWOW64())

@@ -228,6 +228,16 @@ namespace Swelio.Engine
                 return null;
         }
 
+        public int AppletVersion
+        {
+            get
+            {
+                if (reader == null)
+                    return 0;
+                return NativeMethods.GetCardVersion(reader.Index);
+            }
+        }
+
         public string SerialNumber
         {
             get
