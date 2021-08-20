@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.18.2</Version>
+    <Version>1.18.6</Version>
     <Authors>Serhiy Perevoznyk</Authors>
     <Company>Serhiy Perevoznyk</Company>
     <Product>Swelio</Product>
@@ -22,7 +22,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\Swelio_icon.png" Pack="true" PackagePath="\"/>
+    <None Include="..\..\Swelio_icon.png" Pack="true" PackagePath="\" />
     <Content Include="..\..\Redist\Swelio32.dll" Link="Swelio32.dll">
       <Pack>true</Pack>
       <PackageCopyToOutput>true</PackageCopyToOutput>
