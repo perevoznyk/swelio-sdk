@@ -120,8 +120,8 @@ namespace Swelio.Engine
             if (reader != null)
             {
                 int index = NativeMethods.GetReaderIndex(reader.Name);
-                byte[] signature = new byte[1024];
-                int signatureSize = 1024;
+                byte[] signature = new byte[4096];
+                int signatureSize = 4096;
                 if (NativeMethods.GenerateNonRepudiationSignatureEx(index, pinCode, dataHash, hashSize, signature, ref signatureSize))
                 {
                     byte[] result = new byte[signatureSize];
