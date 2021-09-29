@@ -1606,6 +1606,13 @@ BOOL WINAPI ContainerPickCertificate(LPVOID container);
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI ContainerEidCertificate(LPVOID container, int readerNumber);
 
+/// <summary>
+/// Ignore smartcard service stop events when reporting readers list change
+/// </summary>
+/// <param name="value">To ignore or not the service event</param>
+/// <returns>None</returns>
+void WINAPI IgnoreServiceEvents(BOOL value);
+
 //DOM-IGNORE-BEGIN
 #ifdef UNICODE
 #define SelectReaderByName SelectReaderByNameW
