@@ -15,7 +15,6 @@ Belgian eID card SDK
 * Export card data to XML
 * Multiple readers support
 * Exports photo in different graphical formats
-* No eID Middleware required
 * Hash functions and encryption supported
 * Check of the pin code
 * Can create and verify digital signatures
