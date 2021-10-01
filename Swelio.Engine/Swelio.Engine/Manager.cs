@@ -20,6 +20,8 @@ namespace Swelio.Engine
     {
         private List<CardReader> readers;
         private bool traceEvents;
+        private bool traceServiceEvents;
+
         private ReaderCallbackDelegate InternalCallbackDelegate;
 
         /// <summary>
@@ -131,6 +133,15 @@ namespace Swelio.Engine
             NativeMethods.RemoveCallback();
         }
 
+        public bool TraceServiceEvents
+        {
+            get { return traceServiceEvents; }
+            set 
+            { 
+                traceServiceEvents = value;
+                NativeMethods.IgnoreServiceEvents(!value);
+            }
+        }
         public event EventHandler<CardEventArgs> CardInserted;
         public event EventHandler<CardEventArgs> CardRemoved;
         public event EventHandler ReadersListChanged;

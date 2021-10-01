@@ -359,6 +359,9 @@ namespace Swelio.Engine
         [DllImport("Swelio32.dll", EntryPoint = "RemoveCallback", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         private static extern void RemoveCallback32();
 
+        [DllImport("Swelio32.dll", EntryPoint = "IgnoreServiceEvents", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        private static extern void IgnoreServiceEvents32(bool value);
+
         [DllImport("Swelio32.dll", EntryPoint = "RemoveStartupW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         private static extern void RemoveStartup32([MarshalAs(UnmanagedType.LPWStr)] string AppName);
 
@@ -845,6 +848,9 @@ namespace Swelio.Engine
 
         [DllImport("Swelio64.dll", EntryPoint = "RemoveCallback", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         private static extern void RemoveCallback64();
+
+        [DllImport("Swelio64.dll", EntryPoint = "IgnoreServiceEvents", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        private static extern void IgnoreServiceEvents64(bool value);
 
         [DllImport("Swelio64.dll", EntryPoint = "RemoveStartupW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         private static extern void RemoveStartup64([MarshalAs(UnmanagedType.LPWStr)] string AppName);
@@ -2144,6 +2150,18 @@ namespace Swelio.Engine
             }
         }
 
+
+        public static void IgnoreServiceEvents(bool valie)
+        {
+            if (IsWOW64())
+            {
+                IgnoreServiceEvents64(value);
+            }
+            else
+            {
+                IgnoreServiceEvents32(value);
+            }
+        }
 
         public static void RemoveStartup(string AppName)
         {
