@@ -6,17 +6,8 @@
 //used for purposes other than as intended.
 
 using System;
-using System.IO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
 using Swelio.Engine;
 
 namespace EIDTestApp
@@ -192,6 +183,8 @@ namespace EIDTestApp
             engine.CardInserted += new EventHandler<CardEventArgs>(engine_CardInserted);
             engine.CardRemoved += new EventHandler<CardEventArgs>(engine_CardRemoved);
             engine.ReadersListChanged += new EventHandler(engine_ReadersListChanged);
+            engine.TraceHardwareEvents = true;
+            engine.TraceServiceEvents = true;
             engine.TraceEvents = true;
         }
 

@@ -2151,7 +2151,7 @@ namespace Swelio.Engine
         }
 
 
-        public static void IgnoreServiceEvents(bool valie)
+        public static void IgnoreServiceEvents(bool value)
         {
             if (IsWOW64())
             {

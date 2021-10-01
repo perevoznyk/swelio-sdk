@@ -21,6 +21,7 @@ namespace Swelio.Engine
         private List<CardReader> readers;
         private bool traceEvents;
         private bool traceServiceEvents;
+        private bool traceHardwareEvents;
 
         private ReaderCallbackDelegate InternalCallbackDelegate;
 
@@ -30,6 +31,8 @@ namespace Swelio.Engine
         public Manager()
         {
             readers = new List<CardReader>();
+            traceHardwareEvents = true;
+            traceServiceEvents = true;
             InternalCallbackDelegate = new ReaderCallbackDelegate(EventTracer);
         }
 
@@ -98,10 +101,23 @@ namespace Swelio.Engine
                     }
                     break;
                 case CardEvent.ReadersChange:
-                    ReloadReadersList();
-                    if (ReadersListChanged != null)
+                    int newReadersCount = NativeMethods.GetReadersCount();
+                    if ( (newReadersCount != readers.Count) && traceHardwareEvents)
                     {
-                        ReadersListChanged(this, EventArgs.Empty);
+                        ReloadReadersList();
+                        if (ReadersListChanged != null)
+                        {
+                            ReadersListChanged(this, EventArgs.Empty);
+                        }
+                    }
+                    else
+                    {
+                        //Just continue to trace events
+                        if (Active)
+                        {
+                            StopEventsTracing();
+                            StartEventsTracing();
+                        }
                     }
                     break;
                 case CardEvent.UnknownEvent:
@@ -142,6 +158,16 @@ namespace Swelio.Engine
                 NativeMethods.IgnoreServiceEvents(!value);
             }
         }
+
+        public bool TraceHardwareEvents
+        {
+            get { return traceHardwareEvents; }
+            set
+            {
+                traceHardwareEvents = value;
+            }
+        }
+
         public event EventHandler<CardEventArgs> CardInserted;
         public event EventHandler<CardEventArgs> CardRemoved;
         public event EventHandler ReadersListChanged;
