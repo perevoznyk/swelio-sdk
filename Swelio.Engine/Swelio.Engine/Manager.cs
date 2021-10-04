@@ -165,6 +165,7 @@ namespace Swelio.Engine
             set
             {
                 traceHardwareEvents = value;
+                NativeMethods.IgnoreHardwareEvents(!value);
             }
         }
 

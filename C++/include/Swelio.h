@@ -1613,6 +1613,13 @@ BOOL WINAPI ContainerEidCertificate(LPVOID container, int readerNumber);
 /// <returns>None</returns>
 void WINAPI IgnoreServiceEvents(BOOL value);
 
+/// <summary>
+/// Ignore USB reader insert / remove events
+/// </summary>
+/// <param name="value">true - to ignore reader remove / insert events</param>
+/// <returns>None</returns>
+void WINAPI IgnoreHardwareEvents(BOOL value);
+
 //DOM-IGNORE-BEGIN
 #ifdef UNICODE
 #define SelectReaderByName SelectReaderByNameW
