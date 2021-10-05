@@ -7,9 +7,8 @@
 //===============================================================================
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace Swelio.Engine
 {
@@ -520,6 +519,46 @@ namespace Swelio.Engine
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool ContainerEidCertificate32(IntPtr container, int readerNumber);
 
+        [DllImport("Swelio32.dll", EntryPoint = "CardSignCMS", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CardSignCMS32(int readerNumber, byte[] data, int dataLen, byte[] signature, ref int signatureLen);
+
+        [DllImport("Swelio32.dll", EntryPoint = "CardSignCMSEx", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CardSignCMSEx32(int readerNumber, byte[] data, int dataLen, byte[] signature,ref int signatureLen, [In, Out] EIDError error);
+
+        [DllImport("Swelio32.dll", EntryPoint = "CardSignCadesT", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CardSignCadesT32(int readerNumber, byte[] data, int dataLen, byte[] signature, ref int signatureLen);
+
+        [DllImport("Swelio32.dll", EntryPoint = "CardSignCadesTEx", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CardSignCadesTEx32(int readerNumber, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
+
+        [DllImport("Swelio32.dll", EntryPoint = "CertSignCMS", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCMS32(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen);
+
+        [DllImport("Swelio32.dll", EntryPoint = "CertSignCMSEx", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCMSEx32(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
+
+        [DllImport("Swelio32.dll", EntryPoint = "CertSignCadesT", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCadesT32(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen);
+
+        [DllImport("Swelio32.dll", EntryPoint = "CertSignCadesTEx", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCadesTEx32(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
+
+        [DllImport("Swelio32.dll", EntryPoint = "CertSignCMSData", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCMSData32(byte[] certificate, int certLen, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
+
+        [DllImport("Swelio32.dll", EntryPoint = "CertSignCadesTData", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCadesTData32(byte[] certificate, int certLen, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
+
         #endregion
 
         #region x64 API
@@ -1008,6 +1047,46 @@ namespace Swelio.Engine
         [DllImport("Swelio64.dll", EntryPoint = "ContainerEidCertificate", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool ContainerEidCertificate64(IntPtr container, int readerNumber);
+
+        [DllImport("Swelio64.dll", EntryPoint = "CardSignCMS", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CardSignCMS64(int readerNumber, byte[] data, int dataLen, byte[] signature, ref int signatureLen);
+
+        [DllImport("Swelio64.dll", EntryPoint = "CardSignCMSEx", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CardSignCMSEx64(int readerNumber, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
+
+        [DllImport("Swelio64.dll", EntryPoint = "CardSignCadesT", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CardSignCadesT64(int readerNumber, byte[] data, int dataLen, byte[] signature, ref int signatureLen);
+
+        [DllImport("Swelio64.dll", EntryPoint = "CardSignCadesTEx", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CardSignCadesTEx64(int readerNumber, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
+
+        [DllImport("Swelio64.dll", EntryPoint = "CertSignCMS", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCMS64(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen);
+
+        [DllImport("Swelio64.dll", EntryPoint = "CertSignCMSEx", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCMSEx64(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
+
+        [DllImport("Swelio64.dll", EntryPoint = "CertSignCadesT", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCadesT64(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen);
+
+        [DllImport("Swelio64.dll", EntryPoint = "CertSignCadesTEx", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCadesTEx64(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
+
+        [DllImport("Swelio64.dll", EntryPoint = "CertSignCMSData", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCMSData64(byte[] certificate, int certLen, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
+
+        [DllImport("Swelio64.dll", EntryPoint = "CertSignCadesTData", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CertSignCadesTData64(byte[] certificate, int certLen, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
 
         #endregion
 
@@ -2727,9 +2806,130 @@ namespace Swelio.Engine
             }
             else
             {
-                return ContainerEidCertificate64(container, readerNumber);
+                return ContainerEidCertificate32(container, readerNumber);
             }
         }
+
+        public static  bool CardSignCMS(int readerNumber, byte[] data, int dataLen, byte[] signature, ref int signatureLen)
+        {
+            if (IsWOW64())
+            {
+                return CardSignCMS64(readerNumber, data, dataLen, signature, ref signatureLen);
+            }
+            else
+            {
+                return CardSignCMS32(readerNumber, data, dataLen, signature, ref signatureLen);
+            }
+        }
+
+        public static  bool CardSignCMSEx(int readerNumber, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error)
+        {
+            if (IsWOW64())
+            {
+                return CardSignCMSEx64(readerNumber, data, dataLen, signature, ref signatureLen, error);
+            }
+            else
+            {
+                return CardSignCMSEx32(readerNumber, data, dataLen, signature, ref signatureLen, error);
+            }
+        }
+
+        public static  bool CardSignCadesT(int readerNumber, byte[] data, int dataLen, byte[] signature, ref int signatureLen)
+        {
+            if (IsWOW64())
+            {
+                return CardSignCadesT64(readerNumber, data, dataLen, signature, ref signatureLen);
+            }
+            else
+            {
+                return CardSignCadesT32(readerNumber, data, dataLen, signature, ref signatureLen);
+            }
+        }
+
+        public static  bool CardSignCadesTEx(int readerNumber, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error)
+        {
+            if (IsWOW64())
+            {
+                return CardSignCadesTEx64(readerNumber, data, dataLen, signature, ref signatureLen, error);
+            }
+            else
+            {
+                return CardSignCadesTEx32(readerNumber, data, dataLen, signature, ref signatureLen, error);
+            }
+        }
+
+        public static  bool CertSignCMS(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen)
+        {
+            if (IsWOW64())
+            {
+                return CertSignCMS64(certificate, password, data, dataLen, signature, ref signatureLen);
+            }
+            else
+            {
+                return CertSignCMS32(certificate, password, data, dataLen, signature, ref signatureLen);
+            }
+        }
+
+        public static  bool CertSignCMSEx(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error)
+        {
+            if (IsWOW64())
+            {
+                return CertSignCMSEx64(certificate, password, data, dataLen, signature, ref signatureLen, error);
+            }
+            else
+            {
+                return CertSignCMSEx32(certificate, password, data, dataLen, signature, ref signatureLen, error);
+            }
+        }
+
+        public static  bool CertSignCadesT(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen)
+        {
+            if (IsWOW64())
+            {
+                return CertSignCadesT64(certificate, password, data, dataLen, signature, ref signatureLen);
+            }
+            else
+            {
+                return CertSignCadesT32(certificate, password, data, dataLen, signature, ref signatureLen);
+            }
+        }
+
+        public static  bool CertSignCadesTEx(string certificate, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error)
+        {
+            if (IsWOW64())
+            {
+                return CertSignCadesTEx64(certificate, password, data, dataLen, signature, ref signatureLen, error);
+            }
+            else
+            {
+                return CertSignCadesTEx32(certificate, password, data, dataLen, signature, ref signatureLen, error);
+            }
+        }
+
+        public static  bool CertSignCMSData(byte[] certificate, int certLen, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error)
+        {
+            if (IsWOW64())
+            {
+                return CertSignCMSData64(certificate, certLen, password, data, dataLen, signature, ref signatureLen, error);
+            }
+            else
+            {
+                return CertSignCMSData32(certificate, certLen, password, data, dataLen, signature, ref signatureLen, error);
+            }
+        }
+
+        public static  bool CertSignCadesTData(byte[] certificate, int certLen, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error)
+        {
+            if (IsWOW64())
+            {
+                return CertSignCadesTData64(certificate, certLen, password, data, dataLen, signature, ref signatureLen, error);
+            }
+            else
+            {
+                return CertSignCadesTData32(certificate, certLen, password, data, dataLen, signature, ref signatureLen, error);
+            }
+        }
+
 
         #endregion
 

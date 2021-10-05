@@ -318,4 +318,12 @@ namespace Swelio.Engine
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = EIDDataLength.EidMaxMunicipalityName + 1)]
         internal string municipality;
     }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+    internal class EIDError
+    {
+        internal int Code;
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 255)] 
+        internal string Description;
+    }
 }

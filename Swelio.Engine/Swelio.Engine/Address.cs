@@ -19,10 +19,9 @@ namespace Swelio.Engine
     [Browsable(false)]
     public class Address
     {
-        private string zip;
-        private string street;
-        private string municipality;
-
+        private readonly string zip;
+        private readonly string street;
+        private readonly string municipality;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Address"/> class.

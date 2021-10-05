@@ -147,8 +147,10 @@ namespace Swelio.Engine
         /// <returns></returns>
         public static bool VerifySignature(byte[] certificate, byte[] dataHash, int hashSize, byte[] signature, int signatureSize)
         {
-            EIDCertificate cert = new EIDCertificate();
-            cert.certificateLength = certificate.Length;
+            EIDCertificate cert = new EIDCertificate
+            {
+                certificateLength = certificate.Length
+            };
             Array.Copy(certificate, cert.certificate, Math.Min(certificate.Length, EIDDataLength.EidMaxCertLen));
             return NativeMethods.VerifySignature(cert, dataHash, hashSize, signature, signatureSize);
         }

@@ -67,15 +67,16 @@ namespace Swelio.Engine
         public Identity ReadIdentity()
         {
             RegionInfo region = null;
-            bool doConvert = false;
             EIDIdentity eid = new EIDIdentity();
             if (NativeMethods.ReadIdentityEx(reader.Index, eid))
             {
-                Identity id = new Identity();
-                id.BirthDate = CardDate.ToDate(eid.birthDate);
-                id.BirthLocation = eid.birthLocation;
-                id.CardNumber = eid.cardNumber;
-                id.ChipNumber = eid.chipNumber;
+                Identity id = new Identity
+                {
+                    BirthDate = CardDate.ToDate(eid.birthDate),
+                    BirthLocation = eid.birthLocation,
+                    CardNumber = eid.cardNumber,
+                    ChipNumber = eid.chipNumber
+                };
                 switch (eid.documentType)
                 {
                     case 01:
@@ -154,6 +155,7 @@ namespace Swelio.Engine
                     if (id.Nationality.Length < 4)
                     {
                         string ISOName = id.Nationality;
+                        bool doConvert;
                         try
                         {
                             region = new RegionInfo(ISOName);
@@ -272,14 +274,12 @@ namespace Swelio.Engine
                 return null;
 
             EIDPicture photo = new EIDPicture();
-            MemoryStream ms = null;
-
             if (NativeMethods.ReadPhotoEx(reader.Index, photo))
             {
                 if (photo.pictureLength == 0)
                     return null;
 
-                ms = new MemoryStream(photo.picture);
+                MemoryStream ms = new MemoryStream(photo.picture);
                 Image result = Image.FromStream(ms);
                 ms.Dispose();
                 return result;
