@@ -37,6 +37,15 @@ namespace Swelio.Engine
             this.municipality = municipality;
         }
 
+        /// <summary>Parses adress string to street name and house number</summary>
+        /// <returns>
+        ///  The postal address 
+        /// </returns>
+        public PostalAddress Parse()
+        {
+            return new PostalAddress(this);
+        }
+
         /// <summary>
         /// Street name
         /// </summary>

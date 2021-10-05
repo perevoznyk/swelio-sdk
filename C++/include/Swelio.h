@@ -1494,6 +1494,19 @@ BOOL WINAPI CardSignCMSEx(int readerNumber, BYTE* data, UINT dataLen, BYTE* sign
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CardSignCadesT(int readerNumber, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
 
+// Summary:
+//		Sign data with eID card according to CADES-T standard
+// Description:
+//		Create CADES-T signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		readerNumber - The zero-based index of the card reader.  
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+//      error - error information
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CardSignCadesTEx(int readerNumber, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
 
 // Summary:
@@ -1511,6 +1524,20 @@ BOOL WINAPI CardSignCadesTEx(int readerNumber, BYTE* data, UINT dataLen, BYTE* s
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CertSignCMS(LPWSTR certificate, LPWSTR password, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
 
+// Summary:
+//		Sign data with the certificate file according to CMS standard
+// Description:
+//		Create CMS signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		certificate - The name of the certificate file
+//      password - The private key password  
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+//      error - error information
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CertSignCMSEx(LPWSTR certificate, LPWSTR password, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
 
 // Summary:
@@ -1528,7 +1555,49 @@ BOOL WINAPI CertSignCMSEx(LPWSTR certificate, LPWSTR password, BYTE* data, UINT 
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CertSignCadesT(LPWSTR certificate, LPWSTR password, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
 
+// Summary:
+//		Sign data with the certificate file according to CADES-T standard
+// Description:
+//		Create CADES-T signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		certificate - The name of the certificate file
+//      password - The private key password  
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+//      error - error information
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CertSignCadesTEx(LPWSTR certificate, LPWSTR password, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
+
+/// <summary>
+/// Sign data with the certificate according to CMS standard
+/// </summary>
+/// <param name="certificate">The byte array with the signing certificate content</param>
+/// <param name="certLen">The size of th signing certificate</param>
+/// <param name="password">The password of the signing certificate</param>
+/// <param name="data">The data to be signed</param>
+/// <param name="dataLen">The size of the data to be signed</param>
+/// <param name="signature">The value of the signature</param>
+/// <param name="signatureLen">The size of the signature</param>
+/// <param name="error">The error information</param>
+/// <returns>Returns true if the operation is successful, otherwise returns false</returns>
+BOOL WINAPI CertSignCMSData(BYTE* certificate, DWORD certLen, LPWSTR password, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
+
+/// <summary>
+/// Sign data with the certificate according to CADES-T standard
+/// </summary>
+/// <param name="certificate">The byte array with the signing certificate content</param>
+/// <param name="certLen">The size of th signing certificate</param>
+/// <param name="password">The password of the signing certificate</param>
+/// <param name="data">The data to be signed</param>
+/// <param name="dataLen">The size of the data to be signed</param>
+/// <param name="signature">The value of the signature</param>
+/// <param name="signatureLen">The size of the signature</param>
+/// <param name="error">The error information</param>
+/// <returns>Returns true if the operation is successful, otherwise returns false</returns>
+BOOL WINAPI CertSignCadesTData(BYTE* certificate, DWORD certLen, LPWSTR password, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
 
 // Summary:
 //		Initializes ASIC container
