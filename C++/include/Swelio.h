@@ -1478,6 +1478,19 @@ BOOL WINAPI GetCardSerialNumber(int readerNumber,  BYTE* serialNumber, LPDWORD s
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CardSignCMS(int readerNumber, BYTE *data, UINT dataLen, BYTE *signature, UINT *signatureLen);
 
+// Summary:
+//		Sign data with eID card according to CMS standard
+// Description:
+//		Create CMS signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		readerNumber - The zero-based index of the card reader.  
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+//      error - error information
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI CardSignCMSEx(int readerNumber, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* Error);
 
 // Summary:
