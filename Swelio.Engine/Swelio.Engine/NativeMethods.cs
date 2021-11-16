@@ -16,9 +16,17 @@ namespace Swelio.Engine
     [UnmanagedFunctionPointer(CallingConvention.Winapi, CharSet = CharSet.Unicode)]
     public delegate void ReaderCallbackDelegate(ref int readerNumber, ref int eventCode, IntPtr userContext);
 
+    [UnmanagedFunctionPointer(CallingConvention.Winapi, CharSet = CharSet.Auto)]
+    internal delegate IntPtr WndProcDelegate(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
 
     internal static class NativeMethods
     {
+#if WIN64
+        public const string DLL_FILE_NAME = "Swelio64.dll";
+#else
+        public const string DLL_FILE_NAME = "Swelio32.dll";
+#endif
+
         public static bool IsWOW64()
         {
             return IntPtr.Size == 8;
@@ -558,6 +566,7 @@ namespace Swelio.Engine
         [DllImport("Swelio32.dll", EntryPoint = "CertSignCadesTData", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool CertSignCadesTData32(byte[] certificate, int certLen, string password, byte[] data, int dataLen, byte[] signature, ref int signatureLen, [In, Out] EIDError error);
+
 
         #endregion
 

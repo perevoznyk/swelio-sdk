@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net46;net47</TargetFrameworks>
+    <TargetFrameworks>net46;net47;net48</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.18.10</Version>
+    <Version>1.18.11</Version>
     <Authors>Serhiy Perevoznyk</Authors>
     <Company>Serhiy Perevoznyk</Company>
     <Product>Swelio</Product>
@@ -11,7 +11,7 @@
     
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/perevoznyk/swelio-sdk</RepositoryUrl>
-    <PackageProjectUrl>https://perevoznyk.wordpress.com</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/perevoznyk</PackageProjectUrl>
     <PackageIcon>Swelio_icon.png</PackageIcon>
     <Copyright>Copyright © Serhiy Perevoznyk 2014-2021</Copyright>
     <Description>Belgian eID card SDK</Description>
