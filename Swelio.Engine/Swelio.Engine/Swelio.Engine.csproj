@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFrameworks>net46;net47;net48</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.18.11</Version>
+    <Version>1.18.116</Version>
     <Authors>Serhiy Perevoznyk</Authors>
     <Company>Serhiy Perevoznyk</Company>
     <Product>Swelio</Product>
