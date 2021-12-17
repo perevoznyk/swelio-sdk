@@ -20,16 +20,23 @@
     <PackageTags>sdk smartcard eid</PackageTags>
     <PackageId>Swelio</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net46|x64'">
+    <DefineConstants>TRACE;WIN64</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net46|x64'">
+    <DefineConstants>TRACE;WIN64</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\Swelio_icon.png" Pack="true" PackagePath="\" />
-    <Content Include="..\..\Redist\Swelio32.dll" Link="Swelio32.dll">
+    <Content Include="..\..\Redist\Swelio32.dll" Link="Swelio32.dll" Condition="$(Platform)=='x86' Or $(Platform)=='AnyCPU'">
       <Pack>true</Pack>
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <PackageFlatten>true</PackageFlatten>
     </Content>
-    <Content Include="..\..\Redist\Swelio64.dll" Link="Swelio64.dll">
+    <Content Include="..\..\Redist\Swelio64.dll" Link="Swelio64.dll" Condition="$(Platform)=='x64'">
       <Pack>true</Pack>
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

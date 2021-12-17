@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2003
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swelio.Engine", "Swelio.Engine\Swelio.Engine.csproj", "{AACADA10-0AB6-4845-8B13-87A7FA86AE69}"
 EndProject
@@ -15,29 +15,29 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|Any CPU.Build.0 = Release|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x64.Build.0 = Debug|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x86.Build.0 = Debug|Any CPU
+		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x64.ActiveCfg = Debug|x64
+		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x64.Build.0 = Debug|x64
+		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x86.ActiveCfg = Debug|x86
+		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x86.Build.0 = Debug|x86
 		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x64.ActiveCfg = Release|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x64.Build.0 = Release|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x86.ActiveCfg = Release|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x86.Build.0 = Release|Any CPU
+		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x64.ActiveCfg = Release|x64
+		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x64.Build.0 = Release|x64
+		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x86.ActiveCfg = Release|x86
+		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4DE4641B-A353-4E79-9D48-31C633B82037}
-		BuildVersion_UpdateAssemblyVersion = False
-		BuildVersion_UpdateFileVersion = False
-		BuildVersion_BuildVersioningStyle = None.None.None.None
-		BuildVersion_StartDate = 2014/11/21
-		BuildVersion_ConfigurationName = Any
 		BuildVersion_UseGlobalSettings = False
+		BuildVersion_ConfigurationName = Any
+		BuildVersion_StartDate = 2014/11/21
+		BuildVersion_BuildVersioningStyle = None.None.None.None
+		BuildVersion_UpdateFileVersion = False
+		BuildVersion_UpdateAssemblyVersion = False
+		SolutionGuid = {4DE4641B-A353-4E79-9D48-31C633B82037}
 	EndGlobalSection
 EndGlobal
