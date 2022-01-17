@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFrameworks>net46;net47;net48</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.18.116</Version>
+    <Version>1.18.17</Version>
     <Authors>Serhiy Perevoznyk</Authors>
     <Company>Serhiy Perevoznyk</Company>
     <Product>Swelio</Product>
@@ -13,7 +13,7 @@
     <RepositoryUrl>https://github.com/perevoznyk/swelio-sdk</RepositoryUrl>
     <PackageProjectUrl>https://github.com/perevoznyk</PackageProjectUrl>
     <PackageIcon>Swelio_icon.png</PackageIcon>
-    <Copyright>Copyright © Serhiy Perevoznyk 2014-2021</Copyright>
+    <Copyright>Copyright © Serhiy Perevoznyk 2014-2022</Copyright>
     <Description>Belgian eID card SDK</Description>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>enginekey.snk</AssemblyOriginatorKeyFile>
