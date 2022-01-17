@@ -265,7 +265,7 @@ namespace Swelio.Engine
             }
         }
         /// <summary>
-        /// Reads the photo.
+        /// Reads the photo from id card and returns the Image instance.
         /// </summary>
         /// <returns></returns>
         public Image ReadPhoto()
@@ -281,7 +281,7 @@ namespace Swelio.Engine
 
                 MemoryStream ms = new MemoryStream(photo.picture);
                 Image result = Image.FromStream(ms);
-                ms.Dispose();
+                
                 return result;
 
             }
@@ -290,7 +290,32 @@ namespace Swelio.Engine
         }
 
         /// <summary>
-        /// Encodes the photo.
+        /// Reads the photo bytes from the card.
+        /// </summary>
+        /// <returns>Array of bytes from the picture stored on id card "as-is"</returns>
+        public byte[] ReadPhotoBytes()
+        {
+            if (reader == null)
+                return null;
+
+            EIDPicture photo = new EIDPicture();
+            if (NativeMethods.ReadPhotoEx(reader.Index, photo))
+            {
+                if (photo.pictureLength == 0)
+                    return null;
+
+                byte[] buffer = new byte[photo.pictureLength];
+                Array.Copy(photo.picture, buffer, photo.pictureLength);
+                return buffer;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Encodes the photo. Use this method if you want to store the photo in the text file, for example in XML or JSON
         /// </summary>
         /// <returns></returns>
         public byte[] EncodePhoto()
