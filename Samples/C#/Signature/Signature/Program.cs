@@ -23,10 +23,10 @@ namespace Signature
                         {
                             var guid = Guid.NewGuid();
                             var guidData = guid.ToByteArray();
-                            using (SHA1Managed sha1 = new SHA1Managed())
+                            using (SHA256Managed sha256 = new SHA256Managed())
                             {
-                                var sha1hash = sha1.ComputeHash(guidData);
-                                var encryptedData = Encryption.GenerateNonRepudiationSignature(reader, "1234", sha1hash, sha1hash.Length);
+                                var sha256hash = sha256.ComputeHash(guidData);
+                                var encryptedData = Encryption.GenerateNonRepudiationSignature(reader, "1234", sha256hash, sha256hash.Length);
 
                                 if (encryptedData != null)
                                 {
