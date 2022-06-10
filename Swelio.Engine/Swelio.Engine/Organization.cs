@@ -8,15 +8,12 @@
 
 namespace Swelio.Engine
 {
-    public enum DocumentType
+    public enum Organization
     {
         Unknown,
-        BelgianCitizen,
-        EuropeanCommunity,
-        NonEuropeanCommunity,
-        KidsCard,
-        BootstrapCard,
-        HabilitationCard,
-        ForeignerCard
+        SHAPE,
+        NATO,
+        BlueCard,
+        Researcher
     }
 }

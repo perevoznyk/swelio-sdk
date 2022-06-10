@@ -7,7 +7,6 @@
 //===============================================================================
 
 using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using System.IO;
@@ -83,6 +82,8 @@ namespace Swelio.Engine
                         id.DocumentType = DocumentType.BelgianCitizen;
                         break;
                     case 02:
+                    case 31:
+                    case 32:
                         id.DocumentType = DocumentType.EuropeanCommunity;
                         break;
                     case 03:
@@ -101,27 +102,24 @@ namespace Swelio.Engine
                         id.DocumentType = DocumentType.HabilitationCard;
                         break;
                     case 11:
-                        id.DocumentType = DocumentType.ForeignerCard;
-                        break;
                     case 12:
-                        id.DocumentType = DocumentType.ForeignerCard;
-                        break;
                     case 13:
-                        id.DocumentType = DocumentType.ForeignerCard;
-                        break;
                     case 14:
-                        id.DocumentType = DocumentType.ForeignerCard;
-                        break;
                     case 15:
-                        id.DocumentType = DocumentType.ForeignerCard;
-                        break;
                     case 16:
-                        id.DocumentType = DocumentType.ForeignerCard;
-                        break;
                     case 17:
-                        id.DocumentType = DocumentType.ForeignerCard;
-                        break;
                     case 18:
+                    case 19:
+                    case 20:
+                    case 21:
+                    case 22:
+                    case 23:
+                    case 27:
+                    case 28:
+                    case 33:
+                    case 34:
+                    case 35:
+                    case 36:
                         id.DocumentType = DocumentType.ForeignerCard;
                         break;
                     default:
