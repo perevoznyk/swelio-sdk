@@ -45,6 +45,10 @@ BOOL WINAPI GetFileSHA1W(LPWSTR fileName, BYTE* buffer, int bufferSize);
 //  completed successfully, otherwise the result is FALSE       
 BOOL WINAPI GetFileSHA256W(LPWSTR fileName, BYTE* buffer, int bufferSize);
 
+BOOL WINAPI GetFileSHA384W(LPWSTR fileName, BYTE* buffer, int bufferSize);
+
+BOOL WINAPI GetFileSHA512W(LPWSTR fileName, BYTE* buffer, int bufferSize);
+
  //  Summary
  //  Gets the SHA1 hash value for the file
  //  Description
@@ -70,6 +74,10 @@ BOOL WINAPI GetFileSHA1A(LPSTR fileName, BYTE* buffer, int bufferSize);
 //  The result of the function is equal to TRUE if operation is
 //  completed successfully, otherwise the result is FALSE       
 BOOL WINAPI GetFileSHA256A(LPSTR fileName, BYTE* buffer, int bufferSize);
+
+BOOL WINAPI GetFileSHA384A(LPSTR fileName, BYTE* buffer, int bufferSize);
+
+BOOL WINAPI GetFileSHA512A(LPSTR fileName, BYTE* buffer, int bufferSize);
 
  //  Summary
  //  Gets the MD5 hash value for the file
@@ -124,6 +132,10 @@ BOOL WINAPI GetSHA1(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
 //  buffer :      The buffer for the hash value
 //  bufferSize :  The size of the destination buffer              
 BOOL WINAPI GetSHA256(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
+
+BOOL WINAPI GetSHA384(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
+
+BOOL WINAPI GetSHA512(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
 
  //  Summary
  //  Gets the MD5 hash value for the content of the memory buffer
@@ -285,6 +297,8 @@ BOOL WINAPI CardDecryptFileA(LPSTR szSource, LPSTR szDestination);
 #define DecryptFileAES DecryptFileAESW
 #define CardEncryptFile CardEncryptFileW
 #define CardDecryptFile CardDecryptFileW
+#define GetFileSHA384 GetFileSHA384W
+#define GetFileSHA512 GetFileSHA512W
 #else
 #define GetFileSHA1 GetFileSHA1A
 #define GetFileSHA256 GetFileSHA256A
@@ -293,6 +307,8 @@ BOOL WINAPI CardDecryptFileA(LPSTR szSource, LPSTR szDestination);
 #define DecryptFileAES DecryptFileAESA
 #define CardEncryptFile CardEncryptFileA
 #define CardDecryptFile CardDecryptFileA
+#define GetFileSHA384 GetFileSHA384A
+#define GetFileSHA512 GetFileSHA512A
 #endif
 //DOM-IGNORE-END
 

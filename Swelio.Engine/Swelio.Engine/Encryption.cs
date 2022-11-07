@@ -223,8 +223,38 @@ namespace Swelio.Engine
                 return null;
         }
 
+        public static byte[] GetFileSHA256(string fileName)
+        {
+            byte[] hash = new byte[32];
+
+            if (NativeMethods.GetFileSHA256(fileName, hash, hash.Length))
+                return hash;
+            else
+                return null;
+        }
+
+        public static byte[] GetFileSHA384(string fileName)
+        {
+            byte[] hash = new byte[48];
+
+            if (NativeMethods.GetFileSHA384(fileName, hash, hash.Length))
+                return hash;
+            else
+                return null;
+        }
+
+        public static byte[] GetFileSHA512(string fileName)
+        {
+            byte[] hash = new byte[64];
+
+            if (NativeMethods.GetFileSHA512(fileName, hash, hash.Length))
+                return hash;
+            else
+                return null;
+        }
+
         /// <summary>
-        /// Checks the M d5.
+        /// Checks MD5.
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="md5sum">The md5sum.</param>
@@ -297,9 +327,48 @@ namespace Swelio.Engine
                 return null;
         }
 
+        public static byte[] GetSHA256(byte[] message)
+        {
+            if (message == null)
+                return null;
+
+            byte[] hash = new byte[32];
+
+            if (NativeMethods.GetSHA256(message, message.Length, hash, hash.Length))
+                return hash;
+            else
+                return null;
+        }
+
+        public static byte[] GetSHA384(byte[] message)
+        {
+            if (message == null)
+                return null;
+
+            byte[] hash = new byte[48];
+
+            if (NativeMethods.GetSHA384(message, message.Length, hash, hash.Length))
+                return hash;
+            else
+                return null;
+        }
+
+        public static byte[] GetSHA512(byte[] message)
+        {
+            if (message == null)
+                return null;
+
+            byte[] hash = new byte[64];
+
+            if (NativeMethods.GetSHA512(message, message.Length, hash, hash.Length))
+                return hash;
+            else
+                return null;
+        }
+
 
         /// <summary>
-        /// Checks the SH a1.
+        /// Checks SHA1.
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="sha1sum">The sha1sum.</param>

@@ -695,6 +695,12 @@ void WINAPI SaveIdentityA(LPSTR fileName);
 //     identity - The pointer to EidIdentityA structure
 void WINAPI LoadIdentityA(LPSTR fileName, PEidIdentityA identity);
 
+void WINAPI SaveAddressW(LPWSTR fileName);
+void WINAPI LoadAddressW(LPWSTR fileName, PEidAddressW address);
+void WINAPI SaveAddressA(LPSTR fileName);
+void WINAPI LoadAddressA(LPSTR fileName, PEidAddressA address);
+
+
 // Summary:
 //      Save Authentication Certificate to a file
 // Description:

@@ -225,9 +225,33 @@ namespace Swelio.Engine
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool GetSHA1(byte[] source, int sourceSize, byte[] buffer, int bufferSize);
 
+        [DllImport(DLL_FILE_NAME, EntryPoint = "GetSHA256", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetSHA256(byte[] source, int sourceSize, byte[] buffer, int bufferSize);
+
+        [DllImport(DLL_FILE_NAME, EntryPoint = "GetSHA384", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetSHA384(byte[] source, int sourceSize, byte[] buffer, int bufferSize);
+
+        [DllImport(DLL_FILE_NAME, EntryPoint = "GetSHA512", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetSHA512(byte[] source, int sourceSize, byte[] buffer, int bufferSize);
+
         [DllImport(DLL_FILE_NAME, EntryPoint = "GetFileSHA1W", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool GetFileSHA1([MarshalAs(UnmanagedType.LPWStr)] string fileName, byte[] buffer, int bufferSize);
+
+        [DllImport(DLL_FILE_NAME, EntryPoint = "GetFileSHA256W", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetFileSHA256([MarshalAs(UnmanagedType.LPWStr)] string fileName, byte[] buffer, int bufferSize);
+       
+        [DllImport(DLL_FILE_NAME, EntryPoint = "GetFileSHA384W", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetFileSHA384([MarshalAs(UnmanagedType.LPWStr)] string fileName, byte[] buffer, int bufferSize);
+        
+        [DllImport(DLL_FILE_NAME, EntryPoint = "GetFileSHA512W", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetFileSHA512([MarshalAs(UnmanagedType.LPWStr)] string fileName, byte[] buffer, int bufferSize);
 
         [DllImport(DLL_FILE_NAME, EntryPoint = "GetFileMD5W", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
