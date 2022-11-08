@@ -1248,6 +1248,8 @@ BOOL WINAPI GenerateAuthenticationSignatureExW(int readerNumber, LPWSTR pinCode,
 //     Returns TRUE if the signature is successfully generated, otherwise returns FALSE
 BOOL WINAPI GenerateNonRepudiationSignatureExW(int readerNumber, LPWSTR pinCode, BYTE* dataHash, int hashSize, BYTE* signature, LPDWORD signatureSize);
 
+BOOL WINAPI NonRepudiationSignatureAlgoW(int readerNumber, LPWSTR pinCode, BYTE* dataHash, int hashSize, BYTE* signature, LPDWORD signatureSize, BYTE algorithm);
+
 // Summary:
 //     Generate authentication signature
 // Description:
@@ -1277,6 +1279,8 @@ BOOL WINAPI GenerateAuthenticationSignatureExA(int readerNumber, LPSTR pinCode, 
 // Return Value:
 //     Returns TRUE if the signature is successfully generated, otherwise returns FALSE
 BOOL WINAPI GenerateNonRepudiationSignatureExA(int readerNumber, LPSTR pinCode, BYTE* dataHash, int hashSize, BYTE* signature, LPDWORD signatureSize);
+
+BOOL WINAPI NonRepudiationSignatureAlgoA(int readerNumber, LPSTR pinCode, BYTE* dataHash, int hashSize, BYTE* signature, LPDWORD signatureSize, BYTE algorithm);
 
 // Summary:
 //     Verifies the signature from the specified hash value. 
