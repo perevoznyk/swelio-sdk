@@ -194,6 +194,10 @@ namespace Swelio.Engine
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool GenerateNonRepudiationSignatureEx(int readerNumber, [MarshalAs(UnmanagedType.LPWStr)] string pinCode, byte[] dataHash, int hashSize, byte[] signature, ref int signatureSize);
 
+        [DllImport(DLL_FILE_NAME, EntryPoint = "NonRepudiationSignatureAlgoW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GenerateNonRepudiationSignatureAlgo(int readerNumber, [MarshalAs(UnmanagedType.LPWStr)] string pinCode, byte[] dataHash, int hashSize, byte[] signature, ref int signatureSize, byte algorithm);
+
         [DllImport(DLL_FILE_NAME, EntryPoint = "GeneratePNGW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         public static extern void GeneratePNG([MarshalAs(UnmanagedType.LPWStr)] string fileName, [MarshalAs(UnmanagedType.LPWStr)] string Text, int Margin, int Size, int Level);
 

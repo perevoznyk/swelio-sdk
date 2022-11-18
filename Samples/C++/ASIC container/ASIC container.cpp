@@ -8,7 +8,7 @@ int main()
 {
 	LPVOID ctx = InitializeContainer();
 
-	ContainerCertificate(ctx, (LPWSTR)L"dri.products.pfx", (LPWSTR)L"delphi");
+	ContainerCertificate(ctx, (LPWSTR)L"digital-signature.pfx", (LPWSTR)L"password");
 	//ContainerPickCertificate(ctx);
 	//ContainerEidCertificate(ctx, 0);
 

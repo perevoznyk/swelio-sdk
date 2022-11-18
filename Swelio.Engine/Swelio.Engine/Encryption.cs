@@ -136,6 +136,26 @@ namespace Swelio.Engine
         }
 
 
+        public static byte[] GenerateNonRepudiationSignature(CardReader reader, string pinCode, byte[] dataHash, int hashSize, byte algorithm)
+        {
+            if (reader != null)
+            {
+                int index = NativeMethods.GetReaderIndex(reader.Name);
+                byte[] signature = new byte[4096];
+                int signatureSize = 4096;
+                if (NativeMethods.GenerateNonRepudiationSignatureAlgo(index, pinCode, dataHash, hashSize, signature, ref signatureSize, algorithm))
+                {
+                    byte[] result = new byte[signatureSize];
+                    Array.Copy(signature, result, signatureSize);
+                    return result;
+                }
+                else
+                    return null;
+            }
+            else
+                return null;
+        }
+
         /// <summary>
         /// Verifies the signature.
         /// </summary>
