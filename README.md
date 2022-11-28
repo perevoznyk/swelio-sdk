@@ -5,7 +5,7 @@ Belgian eID card SDK
 
 ## Features
 * No external dependencies
-* x32 and x64 versions
+* x32 and x64 versions. There are 2 apart nuget package for x32 and x64 version. You need to select the right one for your configuration.
 * All functions have Unicode and Ansi version
 * Simple to use, easy to embed in any programming language
 * For Microsoft .NET Framework and C++
