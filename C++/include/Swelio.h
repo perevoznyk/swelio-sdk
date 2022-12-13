@@ -1698,6 +1698,62 @@ BOOL WINAPI ContainerPickCertificate(LPVOID container);
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI ContainerEidCertificate(LPVOID container, int readerNumber);
 
+// Summary:
+//		Verify the signatures and the integrity of the ASIC container
+// Description:
+//		Call this function to verify the integrity of the ASIC container
+// Arguments:
+//		container: Container handle, which is allocated by calling InitializeContainer function
+//		fileName: Container file name
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
+BOOL WINAPI VerifyContainer(LPVOID container, LPWSTR fileName);
+
+// Summary:
+//		Set XML canonization standard of the ASIC container
+// Description:
+//		Call this function to set the canonization string value of the ASIC container
+// Arguments:
+//		container: Container handle, which is allocated by calling InitializeContainer function
+//		canonization: XML canonization URI string
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
+BOOL WINAPI SetContainerCanonization(LPVOID container, LPWSTR canonization);
+
+// Summary:
+//		Set time server URI for digital signature of the ASIC container
+// Description:
+//		Call this function to set the timeserver URI value
+// Arguments:
+//		container: Container handle, which is allocated by calling InitializeContainer function
+//		canonization: the address of the time server
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
+BOOL WINAPI SetContainerTimeServer(LPVOID container, LPWSTR timeServer);
+
+// Summary:
+//		Get the number of error messages availavle in the container validation report
+// Description:
+//		Call this function to get the number of the container validation errors
+// Arguments:
+//		container: Container handle, which is allocated by calling InitializeContainer function
+// Return value:
+//		Returns the number of the container validation errors
+int WINAPI GetContainerErrorsCount(LPVOID container);
+
+// Summary:
+//		Gets the value of the container validation error message based on the message index
+// Description:
+//		Call this function to retrieve the validation error message
+// Arguments:
+//		container: Container handle, which is allocated by calling InitializeContainer function
+//		index: error zero-based index
+//		buffer: preallocated buffer for getting error message text
+//		bufSize: the size of buffer in characters
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
+BOOL WINAPI GetContainerError(LPVOID container, int index, LPWSTR buffer, int bufferSize);
+
 /// <summary>
 /// Ignore smartcard service stop events when reporting readers list change
 /// </summary>
@@ -1711,6 +1767,8 @@ void WINAPI IgnoreServiceEvents(BOOL value);
 /// <param name="value">true - to ignore reader remove / insert events</param>
 /// <returns>None</returns>
 void WINAPI IgnoreHardwareEvents(BOOL value);
+
+BOOL  WINAPI SignPdfFile(int readerNumber, LPWSTR fileName);
 
 //DOM-IGNORE-BEGIN
 #ifdef UNICODE

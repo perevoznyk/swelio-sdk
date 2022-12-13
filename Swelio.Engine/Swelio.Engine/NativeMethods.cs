@@ -35,8 +35,6 @@ namespace Swelio.Engine
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool PathUnExpandEnvStrings([MarshalAs(UnmanagedType.LPWStr)] string pszPath, [Out] StringBuilder pszBuf, int cchBuf);
 
-
-
         [DllImport(DLL_FILE_NAME, EntryPoint = "GetCardVersion", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.StdCall)]
         public static extern int GetCardVersion(int readerNumber);
 
@@ -533,6 +531,29 @@ namespace Swelio.Engine
         [DllImport(DLL_FILE_NAME, EntryPoint = "SaveContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool SaveContainer(IntPtr container, [MarshalAs(UnmanagedType.LPWStr)] string fileName);
+
+        [DllImport(DLL_FILE_NAME, EntryPoint = "VerifyContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool VerifyContainer(IntPtr container, [MarshalAs(UnmanagedType.LPWStr)] string fileName);
+
+        [DllImport(DLL_FILE_NAME, EntryPoint = "SetContainerCanonization", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SetContainerCanonization(IntPtr container, [MarshalAs(UnmanagedType.LPWStr)] string canonization);
+
+        [DllImport(DLL_FILE_NAME, EntryPoint = "SetContainerTimeServer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SetContainerTimeServer(IntPtr container, [MarshalAs(UnmanagedType.LPWStr)] string timeServer);
+
+        [DllImport(DLL_FILE_NAME, EntryPoint = "GetContainerErrorsCount", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        public static extern int GetContainerErrorsCount(IntPtr container);
+
+        [DllImport(DLL_FILE_NAME, EntryPoint = "GetContainerError", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetContainerError(IntPtr container, int index, byte[] buffer, int bufferSize);
+
+        [DllImport(DLL_FILE_NAME, EntryPoint = "SignPdfFile", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SignPdfFile(int readerNumber, [MarshalAs(UnmanagedType.LPWStr)] string fileName);
 
         [DllImport(DLL_FILE_NAME, EntryPoint = "AddFileToContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]

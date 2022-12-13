@@ -73,5 +73,34 @@ namespace Swelio.Engine
         {
             return NativeMethods.ContainerCertificate(ctx, fileName, password);
         }
+
+        public bool Verify(string fileName)
+        {
+            return NativeMethods.VerifyContainer(ctx, fileName);
+        }
+
+        public bool SetCanonization(string canonization)
+        {
+            return NativeMethods.SetContainerCanonization(ctx, canonization);
+        }
+
+        public bool SetTimeServer(string timeServer)
+        {
+            return NativeMethods.SetContainerTimeServer(ctx, timeServer);
+        }
+
+        public int GetErrorsCount()
+        {
+            return NativeMethods.GetContainerErrorsCount(ctx);
+        }
+
+        public string GetError(int index)
+        {
+            int len = 1000;
+            byte[] buffer = new byte[len];
+            NativeMethods.GetContainerError(ctx, index, buffer, len);
+            var str = System.Text.Encoding.Default.GetString(buffer);
+            return str;
+        }
     }
 }
