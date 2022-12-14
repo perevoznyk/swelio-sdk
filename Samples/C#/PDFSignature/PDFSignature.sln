@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33027.164
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFSignature", "PDFSignature\PDFSignature.csproj", "{39C03717-A25D-437D-8B4D-314466BA78C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swelio.Engine", "..\..\..\Swelio.Engine\Swelio.Engine\Swelio.Engine.csproj", "{3343AC58-5A69-467D-9D44-C60DAA6461AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Debug|x64.Build.0 = Debug|Any CPU
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Debug|x86.Build.0 = Debug|Any CPU
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Release|x64.ActiveCfg = Release|Any CPU
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Release|x64.Build.0 = Release|Any CPU
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Release|x86.ActiveCfg = Release|Any CPU
+		{39C03717-A25D-437D-8B4D-314466BA78C9}.Release|x86.Build.0 = Release|Any CPU
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Debug|x64.ActiveCfg = Debug|x64
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Debug|x64.Build.0 = Debug|x64
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Debug|x86.ActiveCfg = Debug|x86
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Debug|x86.Build.0 = Debug|x86
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Release|x64.ActiveCfg = Release|x64
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Release|x64.Build.0 = Release|x64
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Release|x86.ActiveCfg = Release|x86
+		{3343AC58-5A69-467D-9D44-C60DAA6461AC}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFF465A4-216C-40AB-9089-E4542452EC36}
+	EndGlobalSection
+EndGlobal

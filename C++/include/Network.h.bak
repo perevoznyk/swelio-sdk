@@ -16,7 +16,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-	/* Check if the specified server is accessible */
 	BOOL WINAPI ServerAccessible(LPWSTR name);
 #ifdef __cplusplus
 }

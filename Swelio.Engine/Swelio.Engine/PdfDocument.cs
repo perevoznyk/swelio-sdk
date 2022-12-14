@@ -10,33 +10,84 @@ namespace Swelio.Engine
     {
         private string fileName;
         private bool activated = false;
-        
+        private IntPtr ctx;
+        private bool certificateSelected = false;
+
 
         public PdfDocument(string fileName)
         {
             this.fileName = fileName;
+            ctx = NativeMethods.InitializeContainer();
         }
 
-        public bool Sign()
+        ~PdfDocument()
         {
-            bool result = false;
+            Close();
+        }
+        /// <summary>Closes container. No any future calls are possible after closing container</summary>
+        public void Close()
+        {
+            NativeMethods.FreeContainer(ctx);
+            if (activated)
+            {
+                NativeMethods.StopEngine();
+            }
+        }
+
+        /// <summary>Selects the certificate.</summary>
+        /// <returns>True - if certificate is selected, otherwise - false</returns>
+        public bool SelectCertificate()
+        {
+            certificateSelected = NativeMethods.ContainerPickCertificate(ctx);
+            return certificateSelected;
+        }
+
+        /// <summary>Selects the certificate.</summary>
+        /// <param name="readerNumber">The reader number.</param>
+        /// <returns>True - if certificate is selected, otherwise - false</returns>
+        public bool SelectCertificate(int readerNumber)
+        {
             if (!NativeMethods.IsEngineActive())
             {
                 NativeMethods.StartEngine();
                 activated = true;
             }
-
-            if (NativeMethods.ActivateCardEx(0))
+            if (NativeMethods.ActivateCardEx(readerNumber))
             {
-                result = NativeMethods.SignPdfFile(0, fileName);
+                certificateSelected = NativeMethods.ContainerEidCertificate(ctx, readerNumber);
             }
-
-            if (activated)
+            else
             {
-                NativeMethods.StartEngine();
+                certificateSelected = false;
+               
             }
+            return certificateSelected;
+        }
 
-            return result;
+        /// <summary>Selects the certificate.</summary>
+        /// <param name="fileName">Name of the certificate file in pfx format</param>
+        /// <param name="password">The password.</param>
+        /// <returns>True - if certificate is selected, otherwise - false</returns>
+        public bool SelectCertificate(string fileName, string password)
+        {
+            certificateSelected = NativeMethods.ContainerCertificate(ctx, fileName, password);
+            return certificateSelected;
+        }
+
+        /// <summary>Sign PDF file using selected certificate</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public bool Sign()
+        {
+            if (certificateSelected)
+            {
+                return NativeMethods.SignPdfFileEx(ctx, fileName);
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

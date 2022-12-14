@@ -1768,7 +1768,26 @@ void WINAPI IgnoreServiceEvents(BOOL value);
 /// <returns>None</returns>
 void WINAPI IgnoreHardwareEvents(BOOL value);
 
+// Summary: 
+//		Digitally sign PDF file using Belgian EID card
+// Description:
+//		Sign PDF document using ID card. The card must be inserted in the reader before calling this function
+// Arguments:
+//		fileName: The name of the PDF file
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL  WINAPI SignPdfFile(int readerNumber, LPWSTR fileName);
+
+// Summary: 
+//		Digitally sign PDF file using Belgian EID card
+// Description:
+//		Sign PDF document using ID card. The card must be inserted in the reader before calling this function
+// Arguments:
+//		container: Pointer to container structrure which is allocated by calling InitializeContainer function
+//		fileName: The name of the PDF file
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
+BOOL  WINAPI SignPdfFileEx(LPVOID container, LPWSTR fileName);
 
 //DOM-IGNORE-BEGIN
 #ifdef UNICODE

@@ -555,6 +555,10 @@ namespace Swelio.Engine
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool SignPdfFile(int readerNumber, [MarshalAs(UnmanagedType.LPWStr)] string fileName);
 
+        [DllImport(DLL_FILE_NAME, EntryPoint = "SignPdfFileEx", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SignPdfFileEx(IntPtr container, [MarshalAs(UnmanagedType.LPWStr)] string fileName);
+
         [DllImport(DLL_FILE_NAME, EntryPoint = "AddFileToContainer", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool AddFileToContainer(IntPtr container, [MarshalAs(UnmanagedType.LPStr)] string fileName);
