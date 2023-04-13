@@ -14,6 +14,7 @@ namespace Swelio.Engine
     public class DocumentContainer
     {
         private IntPtr ctx;
+        byte[] buffer = new byte[1000];
 
         /// <summary>Initializes a new instance of the <see cref="DocumentContainer" /> class.</summary>
         public DocumentContainer() : base()
@@ -96,10 +97,8 @@ namespace Swelio.Engine
 
         public string GetError(int index)
         {
-            int len = 1000;
-            byte[] buffer = new byte[len];
-            NativeMethods.GetContainerError(ctx, index, buffer, len);
-            var str = System.Text.Encoding.Default.GetString(buffer);
+            NativeMethods.GetContainerError(ctx, index, buffer, 999);
+            var str = System.Text.Encoding.Unicode.GetString(buffer);
             return str;
         }
     }
