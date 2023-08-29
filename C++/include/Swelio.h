@@ -1731,6 +1731,10 @@ BOOL WINAPI SetContainerCanonization(LPVOID container, LPWSTR canonization);
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI SetContainerTimeServer(LPVOID container, LPWSTR timeServer);
 
+BOOL WINAPI SetTimeServer(LPWSTR timeServer);
+
+BOOL WINAPI GetTimeServer(LPWSTR buffer, DWORD size);
+
 // Summary:
 //		Get the number of error messages availavle in the container validation report
 // Description:
