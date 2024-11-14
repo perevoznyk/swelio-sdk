@@ -1,14 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoMimeEncoding", "PhotoMimeEncoding.csproj", "{170135AC-25B3-436B-8491-417AF9CF650A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69} = {AACADA10-0AB6-4845-8B13-87A7FA86AE69}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swelio.Engine", "..\..\..\Binding\C#\Swelio.Engine\Swelio.Engine\Swelio.Engine.csproj", "{AACADA10-0AB6-4845-8B13-87A7FA86AE69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,18 +23,6 @@ Global
 		{170135AC-25B3-436B-8491-417AF9CF650A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{170135AC-25B3-436B-8491-417AF9CF650A}.Release|x64.ActiveCfg = Release|Any CPU
 		{170135AC-25B3-436B-8491-417AF9CF650A}.Release|x86.ActiveCfg = Release|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x64.ActiveCfg = Debug|x64
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x64.Build.0 = Debug|x64
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x86.ActiveCfg = Debug|x86
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Debug|x86.Build.0 = Debug|x86
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x64.ActiveCfg = Release|x64
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x64.Build.0 = Release|x64
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x86.ActiveCfg = Release|x86
-		{AACADA10-0AB6-4845-8B13-87A7FA86AE69}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

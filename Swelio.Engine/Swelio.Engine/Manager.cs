@@ -22,6 +22,7 @@ namespace Swelio.Engine
         private bool traceEvents;
         private bool traceServiceEvents;
         private bool traceHardwareEvents;
+        private bool ignoreUnknownCards;
 
         private ReaderCallbackDelegate InternalCallbackDelegate;
 
@@ -31,8 +32,9 @@ namespace Swelio.Engine
         public Manager()
         {
             readers = new List<CardReader>();
-            traceHardwareEvents = true;
-            traceServiceEvents = true;
+            traceHardwareEvents = false; //Do not trace card readers list change events
+            traceServiceEvents = false;  //Do not trace service start and stop
+            ignoreUnknownCards = true;   //Ignore unsopported cards insertion / removal
             InternalCallbackDelegate = new ReaderCallbackDelegate(EventTracer);
         }
 
@@ -166,6 +168,16 @@ namespace Swelio.Engine
             {
                 traceHardwareEvents = value;
                 NativeMethods.IgnoreHardwareEvents(!value);
+            }
+        }
+
+        public bool IgnoreUnknownCards
+        {
+            get { return ignoreUnknownCards; }
+            set
+            {
+                ignoreUnknownCards = value;
+                NativeMethods.IgnoreUnknownCards(value);
             }
         }
 

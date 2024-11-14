@@ -1772,6 +1772,13 @@ void WINAPI IgnoreServiceEvents(BOOL value);
 /// <returns>None</returns>
 void WINAPI IgnoreHardwareEvents(BOOL value);
 
+/// <summary>
+/// Ignore Unknown cards insert / remove events
+/// </summary>
+/// <param name="value">true - to ignore unknown cards remove / insert events</param>
+/// <returns>None</returns>
+void WINAPI IgnoreUnknownCards(BOOL value);
+
 // Summary: 
 //		Digitally sign PDF file using Belgian EID card
 // Description:

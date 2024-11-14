@@ -183,8 +183,8 @@ namespace EIDTestApp
             engine.CardInserted += new EventHandler<CardEventArgs>(engine_CardInserted);
             engine.CardRemoved += new EventHandler<CardEventArgs>(engine_CardRemoved);
             engine.ReadersListChanged += new EventHandler(engine_ReadersListChanged);
-            engine.TraceHardwareEvents = true;
-            engine.TraceServiceEvents = true;
+            engine.TraceHardwareEvents = false;
+            engine.TraceServiceEvents = false;
             engine.TraceEvents = true;
         }
 

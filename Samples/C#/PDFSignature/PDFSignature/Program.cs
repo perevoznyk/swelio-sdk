@@ -11,14 +11,17 @@ namespace PDFSignature
     {
         static void Main(string[] args)
         {
-            PdfDocument pdf = new PdfDocument(args[0]);
-            Manager manager = new Manager();
-            manager.Active = true;
-            manager.GetReader(0).ActivateCard();
-            pdf.SelectCertificate(0);
-            pdf.Sign();
-            pdf.Close();
-            manager.Active = false;
+            if (args.Length > 0)
+            {
+                PdfDocument pdf = new PdfDocument(args[0]);
+                Manager manager = new Manager();
+                manager.Active = true;
+                manager.GetReader(0).ActivateCard();
+                pdf.SelectCertificate(0);
+                pdf.Sign();
+                pdf.Close();
+                manager.Active = false;
+            }
         }
     }
 }

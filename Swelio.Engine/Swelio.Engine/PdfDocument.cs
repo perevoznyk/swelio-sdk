@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Swelio.Engine
 {
+    /// <summary>
+    /// The digital signature for PDF documents
+    /// </summary>
     public class PdfDocument
     {
         private string fileName;
@@ -14,6 +17,10 @@ namespace Swelio.Engine
         private bool certificateSelected = false;
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PdfDocument"/> class.
+        /// </summary>
+        /// <param name="fileName">The file name.</param>
         public PdfDocument(string fileName)
         {
             this.fileName = fileName;

@@ -393,6 +393,9 @@ namespace Swelio.Engine
         [DllImport(DLL_FILE_NAME, EntryPoint = "IgnoreHardwareEvents", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         public static extern void IgnoreHardwareEvents(bool value);
 
+        [DllImport(DLL_FILE_NAME, EntryPoint = "IgnoreUnknownCards", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        public static extern void IgnoreUnknownCards(bool value);
+
         [DllImport(DLL_FILE_NAME, EntryPoint = "RemoveStartupW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         public static extern void RemoveStartup([MarshalAs(UnmanagedType.LPWStr)] string AppName);
 
