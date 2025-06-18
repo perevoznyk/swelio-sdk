@@ -43,7 +43,11 @@ namespace EIDTestApp
 
             Card card = engine.GetReader().GetCard(true);
             if (card == null)
+            {
+                Log.AppendText(DateTime.Now.ToLongTimeString() + " Card not inserted or card read error" + Environment.NewLine);
+
                 return;
+            }
 
             Identity identity = card.ReadIdentity();
             Address address = card.ReadAddress();
