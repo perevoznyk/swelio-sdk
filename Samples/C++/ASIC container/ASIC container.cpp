@@ -1,6 +1,8 @@
 // ASIC container.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+#define _CRTDBG_MAP_ALLOC
+#include <cstdlib>
+#include <crtdbg.h>
 #include <iostream>
 #include "swelio.h"
 
@@ -18,5 +20,11 @@ int main()
 
 	SaveContainer(ctx, (LPWSTR)L"test2.asice");
 	FreeContainer(ctx);
+
+#ifdef _DEBUG
+	// Dump memory leaks at program exit
+	_CrtDumpMemoryLeaks();
+#endif
+	return 0;
 }
 
