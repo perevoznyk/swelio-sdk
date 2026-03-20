@@ -260,7 +260,7 @@ namespace EIDTestApp
             {
                 Card card = reader.GetCard();
                 if (card != null)
-                    card.DisplayCertificate(CertificateType.AuthenticationCertificate);
+                    card.DisplayCertificate(CertificateType.NonRepudiationCertificate);
             }
         }
 

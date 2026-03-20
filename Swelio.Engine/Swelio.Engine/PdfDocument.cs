@@ -13,7 +13,7 @@ namespace Swelio.Engine
     {
         private string fileName;
         private bool activated = false;
-        private IntPtr ctx;
+        private IntPtr ctx = IntPtr.Zero;
         private bool certificateSelected = false;
 
 
@@ -34,10 +34,15 @@ namespace Swelio.Engine
         /// <summary>Closes container. No any future calls are possible after closing container</summary>
         public void Close()
         {
-            NativeMethods.FreeContainer(ctx);
+            if (ctx != IntPtr.Zero)
+            {
+                NativeMethods.FreeContainer(ctx);
+                ctx = IntPtr.Zero;
+            }
             if (activated)
             {
                 NativeMethods.StopEngine();
+                activated = false;
             }
         }
 
