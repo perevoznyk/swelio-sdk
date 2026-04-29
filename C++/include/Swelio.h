@@ -13,7 +13,9 @@
 #if !defined( _SWELIO_H_ )
 #define _SWELIO_H_
 
-#include <windows.h>
+#ifdef WIN32
+#include <Windows.h>
+#endif
 #include "CardStructures.h"
 #include "CardEvents.h"
 

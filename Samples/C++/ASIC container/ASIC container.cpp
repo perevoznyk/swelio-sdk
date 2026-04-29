@@ -1,13 +1,6 @@
 // ASIC container.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#define _CRTDBG_MAP_ALLOC
-#include <cstdlib>
-#include<iostream>
-#include <crtdbg.h>
-#ifdef _DEBUG
-#define DEBUG_NEW new(_NORMAL_BLOCK, __FILE__, __LINE__)
-#define new DEBUG_NEW
-#endif
+
 #include <cstdlib>
 #include <crtdbg.h>
 #include <iostream>
@@ -50,10 +43,7 @@ int main(int argc, char* argv[])
 	//VerifyContainer(ctx, (LPWSTR)L"test2.asice");
 	FreeContainer(ctx);
 
-#ifdef _DEBUG
-	// Dump memory leaks at program exit
-	_CrtDumpMemoryLeaks();
-#endif
+
 	return 0;
 }
 
