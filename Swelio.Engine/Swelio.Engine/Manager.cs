@@ -90,13 +90,13 @@ namespace Swelio.Engine
                 case CardEvent.CardInsert:
                     if (CardInserted != null)
                     {
-                        CardInserted(this, new CardEventArgs((int)readerNumber));
+                        CardInserted(this, new CardEventArgs(readerNumber));
                     }
                     break;
                 case CardEvent.CardRemove:
                     if (CardRemoved != null)
                     {
-                        CardRemoved(this, new CardEventArgs((int)readerNumber));
+                        CardRemoved(this, new CardEventArgs(readerNumber));
                         CardReader reader = GetReader(readerNumber);
                         if (reader != null)
                             reader.DeactivateCard();
@@ -279,9 +279,7 @@ namespace Swelio.Engine
         /// <returns></returns>
         public CardReader GetReader()
         {
-            CardReader result = GetReader(NativeMethods.GetSelectedReaderIndex());
-            if (result == null)
-                result = GetReader(0);
+            CardReader result = GetReader(NativeMethods.GetSelectedReaderIndex()) ?? GetReader(0);
             return result;
         }
 
@@ -310,7 +308,7 @@ namespace Swelio.Engine
                 return result;
             }
             else
-                return null;
+                return new string[0];
         }
 
         /// <summary>

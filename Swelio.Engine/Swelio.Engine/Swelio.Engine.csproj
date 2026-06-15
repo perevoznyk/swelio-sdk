@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net462;net472;net48;net8.0</TargetFrameworks>
+    <TargetFrameworks>net462;net472;net48;net8.0;net10.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.19.0</Version>
+    <Version>1.19.0.2</Version>
     <Authors>Serhiy Perevoznyk</Authors>
     <Company>Serhiy Perevoznyk</Company>
     <Product>Swelio</Product>
@@ -13,7 +13,7 @@
     <RepositoryUrl>https://github.com/perevoznyk/swelio-sdk</RepositoryUrl>
     <PackageProjectUrl>https://github.com/perevoznyk</PackageProjectUrl>
     <PackageIcon>Swelio_icon.png</PackageIcon>
-    <Copyright>Copyright © Serhiy Perevoznyk 2014-2026</Copyright>
+    <Copyright>Copyright © Serhiy Perevoznyk 2013-2026</Copyright>
     <Description>Belgian eID card SDK</Description>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>enginekey.snk</AssemblyOriginatorKeyFile>
@@ -22,6 +22,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Platforms>AnyCPU;x64;x86</Platforms>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <AssemblyVersion>1.19.0.2</AssemblyVersion>
+    <FileVersion>1.19.0.2</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net46|x64'">
     <DefineConstants>TRACE;WIN64</DefineConstants>
@@ -45,6 +47,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0|x86'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0|x64'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0|x86'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0|x64'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0|x86'">
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>

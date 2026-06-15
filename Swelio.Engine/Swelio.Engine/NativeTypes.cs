@@ -6,9 +6,6 @@
 // FITNESS FOR A PARTICULAR PURPOSE.
 //===============================================================================
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.InteropServices;
 
 namespace Swelio.Engine
@@ -17,7 +14,7 @@ namespace Swelio.Engine
     {
         Add = 1, Remove = 2
     };
-    
+
     /// <summary>
     /// Maximum length of EID fields
     /// </summary>
