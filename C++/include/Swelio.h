@@ -7,13 +7,17 @@
 //===============================================================================
 
 //05.03.2021 - Applet 1.8 support
+//26.06.2026 - Remote signature support
 
 #pragma once
 
 #if !defined( _SWELIO_H_ )
 #define _SWELIO_H_
 
-#include <windows.h>
+#ifdef _WINDOWS
+#include <Windows.h>
+#endif // _WINDOWS
+
 #include "CardStructures.h"
 #include "CardEvents.h"
 
@@ -695,9 +699,42 @@ void WINAPI SaveIdentityA(LPSTR fileName);
 //     identity - The pointer to EidIdentityA structure
 void WINAPI LoadIdentityA(LPSTR fileName, PEidIdentityA identity);
 
+// Summary:
+//     Saves address infornation to a file
+// Description:
+//     Use this function to store the raw address information from the Belgian
+//     eID card to a file. You can use LoadAddressW to read this information from the file to
+//     EidAddressW structure
+// Arguments:
+//     fileName - The name of the destination file
 void WINAPI SaveAddressW(LPWSTR fileName);
+
+// Summary:
+//     Reads the raw address information from a file
+// Description:
+//     Use this function to read back the address information stored to the file using SaveAddressW function
+// Arguments:
+//     fileName - The name of the source file
+//     address - The pointer to EidAddressW structure
 void WINAPI LoadAddressW(LPWSTR fileName, PEidAddressW address);
+
+// Summary:
+//     Saves address infornation to a file
+// Description:
+//     Use this function to store the raw address information from the Belgian
+//     eID card to a file. You can use LoadAddressA to read this information from the file to
+//     EidAddressA structure
+// Arguments:
+//     fileName - The name of the destination file
 void WINAPI SaveAddressA(LPSTR fileName);
+
+// Summary:
+//     Reads the raw address information from a file
+// Description:
+//     Use this function to read back the address information stored to the file using SaveAddressA function
+// Arguments:
+//     fileName - The name of the source file
+//     address - The pointer to EidAddressA structure
 void WINAPI LoadAddressA(LPSTR fileName, PEidAddressA address);
 
 
@@ -1595,6 +1632,20 @@ BOOL WINAPI CertSignCadesT(LPWSTR certificate, LPWSTR password, BYTE *data, UINT
 BOOL WINAPI CertSignCadesTEx(LPWSTR certificate, LPWSTR password, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
 
 /// <summary>
+/// Sign data with the certificate according to CADES-T standard
+/// </summary>
+/// <param name="certificate">The byte array with the signing certificate content</param>
+/// <param name="certLen">The size of th signing certificate</param>
+/// <param name="password">The password of the signing certificate</param>
+/// <param name="data">The data to be signed</param>
+/// <param name="dataLen">The size of the data to be signed</param>
+/// <param name="signature">The value of the signature</param>
+/// <param name="signatureLen">The size of the signature</param>
+/// <param name="error">The error information</param>
+/// <returns>Returns true if the operation is successful, otherwise returns false</returns>
+BOOL WINAPI CertSignCadesTData(BYTE* certificate, DWORD certLen, LPWSTR password, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
+
+/// <summary>
 /// Sign data with the certificate according to CMS standard
 /// </summary>
 /// <param name="certificate">The byte array with the signing certificate content</param>
@@ -1608,19 +1659,6 @@ BOOL WINAPI CertSignCadesTEx(LPWSTR certificate, LPWSTR password, BYTE* data, UI
 /// <returns>Returns true if the operation is successful, otherwise returns false</returns>
 BOOL WINAPI CertSignCMSData(BYTE* certificate, DWORD certLen, LPWSTR password, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
 
-/// <summary>
-/// Sign data with the certificate according to CADES-T standard
-/// </summary>
-/// <param name="certificate">The byte array with the signing certificate content</param>
-/// <param name="certLen">The size of th signing certificate</param>
-/// <param name="password">The password of the signing certificate</param>
-/// <param name="data">The data to be signed</param>
-/// <param name="dataLen">The size of the data to be signed</param>
-/// <param name="signature">The value of the signature</param>
-/// <param name="signatureLen">The size of the signature</param>
-/// <param name="error">The error information</param>
-/// <returns>Returns true if the operation is successful, otherwise returns false</returns>
-BOOL WINAPI CertSignCadesTData(BYTE* certificate, DWORD certLen, LPWSTR password, BYTE* data, UINT dataLen, BYTE* signature, UINT* signatureLen, ErrorInformation* error);
 
 // Summary:
 //		Initializes ASIC container
@@ -1731,8 +1769,25 @@ BOOL WINAPI SetContainerCanonization(LPVOID container, LPWSTR canonization);
 //		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI SetContainerTimeServer(LPVOID container, LPWSTR timeServer);
 
+// Summary:
+//		Set time server URI for digital signature of the ASIC container
+// Description:
+//		Call this function to set the timeserver URI value
+// Arguments:
+//		timeServer: the address of the time server
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI SetTimeServer(LPWSTR timeServer);
 
+// Summary:
+//		Get the time server URI for digital signature of the ASIC container
+// Description:
+//		Call this function to get the timeserver URI value
+// Arguments:
+//		buffer: The buffer to store the time server URI
+//		size: The size of the buffer
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 BOOL WINAPI GetTimeServer(LPWSTR buffer, DWORD size);
 
 // Summary:

@@ -45,8 +45,32 @@ BOOL WINAPI GetFileSHA1W(LPWSTR fileName, BYTE* buffer, int bufferSize);
 //  completed successfully, otherwise the result is FALSE       
 BOOL WINAPI GetFileSHA256W(LPWSTR fileName, BYTE* buffer, int bufferSize);
 
+//  Summary
+//  Gets the SHA384 hash value for the file
+//  Description
+//  Calculates SHA384 hash value for the given file
+//  Parameters
+//  fileName :    The name of the file
+//  buffer :      The buffer to store the hash value
+//  bufferSize :  The size of the buffer
+//  
+//  Return Value
+//  The result of the function is equal to TRUE if operation is
+//  completed successfully, otherwise the result is FALSE       
 BOOL WINAPI GetFileSHA384W(LPWSTR fileName, BYTE* buffer, int bufferSize);
 
+//  Summary
+//  Gets the SHA512 hash value for the file
+//  Description
+//  Calculates SHA512 hash value for the given file
+//  Parameters
+//  fileName :    The name of the file
+//  buffer :      The buffer to store the hash value
+//  bufferSize :  The size of the buffer
+//  
+//  Return Value
+//  The result of the function is equal to TRUE if operation is
+//  completed successfully, otherwise the result is FALSE       
 BOOL WINAPI GetFileSHA512W(LPWSTR fileName, BYTE* buffer, int bufferSize);
 
  //  Summary
@@ -75,8 +99,30 @@ BOOL WINAPI GetFileSHA1A(LPSTR fileName, BYTE* buffer, int bufferSize);
 //  completed successfully, otherwise the result is FALSE       
 BOOL WINAPI GetFileSHA256A(LPSTR fileName, BYTE* buffer, int bufferSize);
 
+//  Summary
+//  Gets the SHA384 hash value for the file
+//  Description
+//  Calculates SHA384 hash value for the given file
+//  Parameters
+//  fileName :    The name of the file
+//  buffer :      The buffer to store the hash value
+//  bufferSize :  The size of the buffer
+//  Return Value
+//  The result of the function is equal to TRUE if operation is
+//  completed successfully, otherwise the result is FALSE       
 BOOL WINAPI GetFileSHA384A(LPSTR fileName, BYTE* buffer, int bufferSize);
 
+//  Summary
+//  Gets the SHA512 hash value for the file
+//  Description
+//  Calculates SHA512 hash value for the given file
+//  Parameters
+//  fileName :    The name of the file
+//  buffer :      The buffer to store the hash value
+//  bufferSize :  The size of the buffer
+//  Return Value
+//  The result of the function is equal to TRUE if operation is
+//  completed successfully, otherwise the result is FALSE       
 BOOL WINAPI GetFileSHA512A(LPSTR fileName, BYTE* buffer, int bufferSize);
 
  //  Summary
@@ -133,8 +179,32 @@ BOOL WINAPI GetSHA1(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
 //  bufferSize :  The size of the destination buffer              
 BOOL WINAPI GetSHA256(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
 
+//  Summary
+//  Gets the SHA384 hash value for the content of the memory buffer
+//  Description
+//  Calculates SHA384 hash value for the given memory buffer
+//  Return Value
+//  The result of the function is equal to TRUE if operation is
+//  completed successfully, otherwise the result is FALSE
+//  Parameters
+//  source :      The source memory block
+//  sourceSize :  The size of the source memory block
+//  buffer :      The buffer for the hash value
+//  bufferSize :  The size of the destination buffer              
 BOOL WINAPI GetSHA384(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
 
+//  Summary
+//  Gets the SHA512 hash value for the content of the memory buffer
+//  Description
+//  Calculates SHA512 hash value for the given memory buffer
+//  Return Value
+//  The result of the function is equal to TRUE if operation is
+//  completed successfully, otherwise the result is FALSE
+//  Parameters
+//  source :      The source memory block
+//  sourceSize :  The size of the source memory block
+//  buffer :      The buffer for the hash value
+//  bufferSize :  The size of the destination buffer              
 BOOL WINAPI GetSHA512(BYTE* source, int sourceSize, BYTE* buffer, int bufferSize);
 
  //  Summary

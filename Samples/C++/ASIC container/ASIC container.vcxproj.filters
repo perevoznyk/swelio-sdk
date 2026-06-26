@@ -29,13 +29,13 @@
     <CopyFileToFolders Include="make_certificate.cmd">
       <Filter>Certificate</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="test_pkcs12.pfx">
-      <Filter>Certificate</Filter>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="test1.docx">
       <Filter>Certificate</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="test1.pdf">
+      <Filter>Certificate</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="input.txt">
       <Filter>Certificate</Filter>
     </CopyFileToFolders>
   </ItemGroup>

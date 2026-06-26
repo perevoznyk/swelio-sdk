@@ -12,6 +12,7 @@
 extern "C" {
 #endif
 
+// The type of the callback function
 typedef VOID (CALLBACK * CALLBACK_HANDLER) (LPDWORD, LPDWORD, PVOID);
 
 /* The type of the reader event */

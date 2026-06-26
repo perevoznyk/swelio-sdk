@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include <windows.h>
+#include <Windows.h>
 
 #if !defined( _NETWORK_H_ )
 #define _NETWORK_H_
@@ -16,7 +16,19 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+	// Summary:
+	//     Checks if the server is accessible
+	// Description:
+	//     This function checks if the server is accessible. It can be used to check if the server 
+	//     is reachable before trying to download the certificate revocation list (CRL) or other 
+	//     resources from the server.
+	// Arguments:
+	//     name - The server name or URL to check
+	// Return Value:
+	//     Returns TRUE if the server is accessible, otherwise returns FALSE.
 	BOOL WINAPI ServerAccessible(LPWSTR name);
+
 #ifdef __cplusplus
 }
 #endif
