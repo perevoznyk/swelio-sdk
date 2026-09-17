@@ -1358,6 +1358,13 @@ void WINAPI RemoveCallback();
 void WINAPI ReloadReadersList();
 
 // Summary:
+//     Add card reader to ignore list
+// Description:
+//     Use this function to add the card reader to ignore list. The card reader in the ignore list will not be used
+//     by the library and will not be returned in the list of available card readers
+void WINAPI AddReaderToIgnoreList(LPCWSTR readerName);
+
+// Summary:
 //      Save Authentication Certificate to a file
 // Description:
 //      Read Authentication Certificate from the card and save it to a file.

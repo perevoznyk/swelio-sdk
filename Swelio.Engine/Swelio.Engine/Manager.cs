@@ -235,6 +235,22 @@ namespace Swelio.Engine
             }
         }
 
+        /// <summary>
+        /// Adds the reader to the ignore list.
+        /// </summary>
+        /// <param name="readerName">Name of the reader.</param>    
+        public void AddReaderToIgnoreList(string readerName)
+        {
+            if (Active)
+            {
+                StopEventsTracing();
+                NativeMethods.AddReaderToIgnoreList(readerName);
+                NativeMethods.ReloadReadersList();
+                RetrieveReadersList();
+            }
+      
+        }
+
         public bool SendAPDU(int readerNumber, byte[] apdu, int apduLen, byte[] result, ref int len)
         {
             CardReader reader = GetReader(readerNumber);

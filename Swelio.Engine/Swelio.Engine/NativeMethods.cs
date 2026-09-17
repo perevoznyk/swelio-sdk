@@ -384,6 +384,9 @@ namespace Swelio.Engine
         [DllImport(DLL_FILE_NAME, EntryPoint = "ReloadReadersList", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         public static extern void ReloadReadersList();
 
+        [DllImport(DLL_FILE_NAME, EntryPoint = "AddReaderToIgnoreList", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+        public static extern void AddReaderToIgnoreList([MarshalAs(UnmanagedType.LPWStr)] string readerName);
+
         [DllImport(DLL_FILE_NAME, EntryPoint = "RemoveCallback", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         public static extern void RemoveCallback();
 
